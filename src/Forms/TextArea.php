@@ -7,7 +7,9 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 class TextArea extends \HTML\Element {
+  /** @var string */
   protected $fieldName;
+  
   function __construct($name = "", $rows = "", $cols = "", $value = "") {
     parent::__construct("textarea");
     $this->fieldName = (string) $name;
