@@ -42,7 +42,7 @@ class TextNode {
    * @param string $content
    * @return void
    */
-  function setContent($content) {
+  function setContent($content = "") {
     $this->content = (string) $content;
   }
   

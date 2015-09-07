@@ -41,7 +41,7 @@ abstract class Element extends BaseElement {
   /**
    * @param string $content
    */
-  function setContent($content) {
+  function setContent($content = "") {
     $this->content = (string) $content;
   }
   
