@@ -24,8 +24,7 @@ default:
     $this->parts[$count] = new ListItem($text);
   }
   
-  function append($item) {
-    if($item instanceof ListItem) {  } else { exit; }
+  function append(ListItem $item) {
     $count = count($this->parts);
     $this->parts[$count] = $item;
   }
