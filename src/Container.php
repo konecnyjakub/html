@@ -6,15 +6,9 @@ namespace HTML;
  *
  * @author Jakub Konečný
  */
-class Container {
-  /** @var string */
-  protected $name;
+class Container extends BaseElement {
   /** @var array */
   protected $parts = array();
-  /** @var string */
-  protected $class;
-  /** @var string */
-  protected $id;
   
   /**
    * @param string $name
@@ -26,25 +20,11 @@ class Container {
   }
   
   /**
-   * @param string $id
-   */
-  function setId($id) {
-    $this->id = (string) $id;
-  }
-  
-  /**
-   * @param string $class
-   */
-  function setClass($class) {
-    $this->class = (string) $class;
-  }
-  
-  /**
    * @param Element|Container $element
    * @return int
    */
   function append($element) {
-    if($element instanceof Element OR $element instanceof Container) { } else { exit("Invalid value for parametr element passed to method Container::append. Expected Element or Container."); }
+    if($element instanceof BaseElement) { } else { exit("Invalid value for parametr element passed to method Container::append. Expected Element or Container."); }
     $count = count($this->parts);
     $this->parts[] = $element;
     return $count;

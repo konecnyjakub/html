@@ -6,15 +6,9 @@ namespace HTML;
  *
  * @author Jakub Konečný
  */
-abstract class Element {
-  /** @var string */
-  protected $name;
+abstract class Element extends BaseElement {
   /** @var string */
   protected $content;
-  /** @var string */
-  protected $class;
-  /** @var string */
-  protected $id;
   
   /**
    * @param string $name
@@ -23,20 +17,6 @@ abstract class Element {
   function __construct($name, $content = "") {
     $this->name = (string) $name;
     $this->content = (string) $content;
-  }
-  
-  /**
-   * @param string $id
-   */
-  function setId($id) {
-    $this->id = (string) $id;
-  }
-  
-  /**
-   * @param string $class
-   */
-  function setClass($class) {
-    $this->class = (string) $class;
   }
   
   /**
