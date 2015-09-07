@@ -270,10 +270,9 @@ class Page {
    * @param HTMLCode|string $content
    */
   function inject($content) {
-    if(is_string($content) OR $content instanceof HTMLCode) { }
-    else { exit("Invalid value for parametr content passed to method Page::inject. Expected HTMLCode or string."); }
     if(is_string($content)) $this->elements[] = new HTMLCode($content);
     elseif($content instanceof HTMLCode) $this->elements[] = $content;
+    else exit("Invalid value for parametr content passed to method Page::inject. Expected HTMLCode or string.");
   }
   
   /**
