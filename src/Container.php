@@ -24,7 +24,7 @@ class Container extends BaseElement {
    * @return int
    */
   function append($element) {
-    if($element instanceof BaseElement) { } else { exit("Invalid value for parametr element passed to method Container::append. Expected Element or Container."); }
+    if(!($element instanceof BaseElement)) exit("Invalid value for parametr element passed to method Container::append. Expected Element or Container.");
     $count = count($this->parts);
     $this->parts[] = $element;
     return $count;
