@@ -23,7 +23,7 @@ class HTMLCode {
    * @param string $content
    * @return void
    */
-  function change($content = "") {
+  function setContent($content = "") {
     $this->content = (string) $content;
   }
   
