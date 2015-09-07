@@ -20,12 +20,12 @@ class Table extends Container {
   function __construct($colls) {
     parent::__construct("table");
     if(is_int($colls)) $this->colls = $colls;
-    else exit("Invalid value for parametr colls passed to method Table::__construct. Expected integer.");
+    else throw new InvalidValueException("Invalid value for parametr colls passed to method Table::__construct. Expected integer.");
   }
   
   function setCollName($coll, $name) {
     if($coll > $this->colls OR $coll <= 0) exit("Invalid column.");
-    if(!is_string($name)) exit("Invalid value for parametr name passed to method Table::setCollName. Expected string.");
+    if(!is_string($name)) throw new InvalidValueException("Invalid value for parametr name passed to method Table::setCollName. Expected string.");
     $this->collsNames[$coll] = $name;
     return $this;
   }

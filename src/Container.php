@@ -24,7 +24,7 @@ class Container extends BaseElement {
    * @return int
    */
   function append($element) {
-    if(!($element instanceof BaseElement)) exit("Invalid value for parametr element passed to method Container::append. Expected Element or Container.");
+    if(!($element instanceof BaseElement)) throw new InvalidValueException("Invalid value for parametr element passed to method Container::append. Expected Element or Container.");
     $count = count($this->parts);
     $this->parts[] = $element;
     return $count;
@@ -37,7 +37,7 @@ class Container extends BaseElement {
   function inject($content) {
     if(is_string($content)) $this->parts[] = new HTMLCode($content);
     elseif($content instanceof HTMLCode) $this->parts[] = $content;
-    else exit("Invalid value for parametr content passed to method Page::inject. Expected HTMLCode or string.");
+    else throw new InvalidValueException("Invalid value for parametr content passed to method Page::inject. Expected HTMLCode or string.");
   }
   
   /**
@@ -55,7 +55,7 @@ class Container extends BaseElement {
   function addText($node) {
     if(is_string($node)) $this->parts[] = new TextNode($node);
     elseif($node instanceof TextNode) $this->parts[] = $node;
-    else exit("Invalid value for parametr node passed to method Container::addText. Expected string or TextNode.");
+    else throw new InvalidValueException("Invalid value for parametr node passed to method Container::addText. Expected string or TextNode.");
   }
   
   /**

@@ -88,7 +88,7 @@ class Page {
    * @param array $scripts
    */
   function attachScripts(array $scripts = array()) {
-    if(!is_array($scripts)) exit("Invalid value for parametr scripts passed to method Page::attachScripts. Expected array.");
+    if(!is_array($scripts)) throw new InvalidValueException("Invalid value for parametr scripts passed to method Page::attachScripts. Expected array.");
     foreach($scripts as $script) {
       $this->attachScript($script);
     }
@@ -102,7 +102,7 @@ class Page {
   function addText($node) {
     if(is_string($node)) $this->elements[] = new TextNode($node);
     elseif($node instanceof TextNode) $this->elements[] = $node;
-    else exit("Invalid value for parametr node passed to method Container::addText. Expected string or TextNode.");
+    else throw new InvalidValueException("Invalid value for parametr node passed to method Container::addText. Expected string or TextNode.");
   }
   
   /**
@@ -261,7 +261,7 @@ class Page {
    */
   function append($element) {
     if($element instanceof BaseElement) $this->elements[] = $element;
-    else exit("Invalid value for parametr element passed to method Page::append. Expected Element or Container.");
+    else throw new InvalidValueException("Invalid value for parametr element passed to method Page::append. Expected Element or Container.");
   }
   
   /**
@@ -272,7 +272,7 @@ class Page {
   function inject($content) {
     if(is_string($content)) $this->elements[] = new HTMLCode($content);
     elseif($content instanceof HTMLCode) $this->elements[] = $content;
-    else exit("Invalid value for parametr content passed to method Page::inject. Expected HTMLCode or string.");
+    else throw new InvalidValueException("Invalid value for parametr content passed to method Page::inject. Expected HTMLCode or string.");
   }
   
   /**

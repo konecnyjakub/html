@@ -19,7 +19,7 @@ class Input extends \HTML\Element {
   function __construct($name = "", $type = "", $size = "", $value = "", $src = "") {
     parent::__construct("input");
     $type = strtolower($type);
-    if(!in_array($type, $this->allowed_types)) exit("Invalid value for parametr type passed to method FormInput::__construct.");
+    if(!in_array($type, $this->allowed_types)) throw new InvalidValueException("Invalid value for parametr type passed to method FormInput::__construct.");
     $this->type = $type;
     $this->fieldName = (string) $name;
     $this->size = (int) $size;
