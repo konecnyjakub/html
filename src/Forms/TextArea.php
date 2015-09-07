@@ -9,6 +9,10 @@ namespace HTML\Forms;
 class TextArea extends \HTML\Element {
   /** @var string */
   protected $fieldName;
+  /** @var int */
+  protected $rows;
+  /** @var int */
+  protected $cols;
   
   function __construct($name = "", $rows = "", $cols = "", $value = "") {
     parent::__construct("textarea");
