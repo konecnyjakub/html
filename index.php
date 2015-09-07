@@ -11,7 +11,8 @@ function html_lib_autoload($class) {
   $filename = __DIR__ . "/src";
   foreach($pieces as $level => $piece) {
     if(!$level) continue;
-    $filename .= "/$piece";
+    elseif($level === 1 AND substr($piece, -9) === "Exception") $filename .= "/exceptions";
+    else $filename .= "/$piece";
   }
   $filename .= ".php";
   require $filename;
