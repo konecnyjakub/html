@@ -2,7 +2,7 @@
 namespace HTML\Forms;
 
 /**
- * Description of TextArea
+ * TextArea
  *
  * @author Jakub Konečný
  */
@@ -14,6 +14,12 @@ class TextArea extends \HTML\Element {
   /** @var int */
   protected $cols;
   
+  /**
+   * @param string $name
+   * @param int $rows
+   * @param int $cols
+   * @param string $value
+   */
   function __construct($name = "", $rows = "", $cols = "", $value = "") {
     parent::__construct("textarea");
     $this->fieldName = (string) $name;
@@ -22,22 +28,39 @@ class TextArea extends \HTML\Element {
     $this->cols = (int) $cols;
   }
   
+  /**
+   * @param string $name
+   */
   function setFieldName($name) {
     $this->fieldName = (string) $name;
   }
   
+  /**
+   * @param int $number
+   */
   function setRows($number) {
     $this->rows = (int) $number;
   }
   
+  /**
+   * @param int $number
+   */
   function setCols($number) {
     $this->cols = (int) $number;
   }
   
+  /**
+   * @param string $value
+   */
   function setValue($value) {
     $this->content = (string) $value;
   }
   
+  /**
+   * Render the element
+   * 
+   * @return string
+   */
   function render() {
     $return = "<textarea";
     if($this->class) $return .= " class=\"{$this->class}\"";

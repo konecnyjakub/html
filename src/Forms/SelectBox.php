@@ -2,23 +2,36 @@
 namespace HTML\Forms;
 
 /**
- * Description of SelectBox
+ * SelectBox
  *
  * @author Jakub Konečný
  */
 class SelectBox extends \HTML\Container {
+  /** @var string */
   protected $fieldName;
+  /** @var int */
   protected $size;
+  
+  /**
+   * @param string $name
+   * @param int $size
+   */
   function __construct($name = "", $size = "") {
     parent::__construct("select");
     $this->fieldName = (string) $name;
     $this->size = (int) $size;
   }
   
+  /**
+   * @param string $name
+   */
   function setFieldName($name) {
     $this->fieldName = (string) $name;
   }
   
+  /**
+   * @param int $size
+   */
   function setSize($size) {
     $this->size = (int) $size;
   }
@@ -37,6 +50,11 @@ class SelectBox extends \HTML\Container {
     return $return;
   }
   
+  /**
+   * Render the element
+   * 
+   * @return string
+   */
   function render() {
     $return = "<select";
     if($this->class) $return .= " class=\"{$this->class}\"";

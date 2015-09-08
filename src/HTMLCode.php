@@ -2,7 +2,7 @@
 namespace HTML;
 
 /**
- * Description of HTMLCode
+ * HTMLCode
  *
  * @author Jakub Konečný
  */

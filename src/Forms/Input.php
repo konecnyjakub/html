@@ -2,16 +2,22 @@
 namespace HTML\Forms;
 
 /**
- * Description of Input
+ * Input
  *
  * @author Jakub Konečný
  */
 class Input extends \HTML\Element {
+  /** @var string */
   protected $type;
+  /** @var string */
   protected $fieldName;
+  /** @var string */
   protected $value;
+  /** @var int */
   protected $size;
+  /** @var string */
   protected $src;
+  /** @var array */
   protected $allowed_types = array("text", "password", "checkbox", "radio", "hidden", "submit", "reset", "image", "file",
     "search", "tel", "url", "email", "number", "range", "color",
     "date", "month", "week", "time", "datetime", "datetime-local");
@@ -27,27 +33,47 @@ class Input extends \HTML\Element {
     $this->src = (string) $src;
   }
   
+  /**
+   * @param string $type
+   */
   function setType($type) {
     if(!in_array($type, $this->allowed_types)) exit("Invalid value for parametr type passed to method FormInput::setType.");
     else $this->type = strtolower($type);
   }
   
+  /**
+   * @param string $name
+   */
   function setFieldName($name) {
     $this->fieldName = (string) $name;
   }
   
+  /**
+   * @param string $value
+   */
   function setValue($value) {
     $this->value = (string) $value;
   }
   
+  /**
+   * @param int $size
+   */
   function setSize($size) {
     $this->size = (string) $size;
   }
   
+  /**
+   * @param string $src
+   */
   function setSrc($src) {
     if($this->type == "image") $this->src = (string) $src;
   }
   
+  /**
+   * Render the element
+   * 
+   * @return string
+   */
   function render() {
     $return = "<input";
     if($this->class) $return .= " class=\"{$this->class}\"";

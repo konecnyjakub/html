@@ -2,7 +2,7 @@
 namespace HTML\Forms;
 
 /**
- * Description of Form
+ * Form
  *
  * @author Jakub Konečný
  */
@@ -20,18 +20,30 @@ class Form extends \HTML\Container {
     $this->target = (string) $target;
   }
   
+  /**
+   * @param string $name
+   */
   function setFormName($name) {
     $this->formName = (string) $name;
   }
   
+  /**
+   * @param string $url
+   */
   function setAction($url) {
     $this->action = (string) $url;
   }
   
+  /**
+   * @param string $frame
+   */
   function setTarget($frame) {
     $this->target = (string) $frame;
   }
   
+  /**
+   * @param string $method
+   */
   function setMethod($method) {
     $method = strtolower($method);
     if($method == "get" OR $method == "post") $this->method = $method;
