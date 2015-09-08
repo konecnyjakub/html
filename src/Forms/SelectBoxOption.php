@@ -35,14 +35,14 @@ class SelectBoxOption extends \HTML\Element {
   }
   
   /**
-   * Render the element
+   * Render opening tag
    * 
    * @return string
    */
-  function render() {
+  function renderOpening() {
     $return = "<option";
     if($this->value) $return .= " value=\"{$this->value}\"";
-    $return .= ">$this->content</option>\n";
+    $return .= ">";
     return $return;
   }
 }

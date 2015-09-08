@@ -46,16 +46,12 @@ abstract class Element extends BaseElement {
   }
   
   /**
-   * Render the element
+   * Render element's content
    * 
    * @return string
    */
-  function render() {
-    $return = "<$this->name";
-    if($this->class) $return .= " class=\"{$this->class}\"";
-    if($this->id) $return .= " id=\"$this->id\"";
-    $return .= ">$this->content</$this->name>\n";
-    return $return;
+  function renderContent() {
+    return $this->content;
   }
 }
 ?>

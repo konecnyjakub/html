@@ -27,16 +27,16 @@ class Link extends \HTML\Element {
   }
   
   /**
-   * Render the element
+   * Render opening tag
    * 
    * @return string
    */
-  function render() {
+  function renderOpening() {
      $return = "<$this->name";
      if($this->class) $return .= " class=\"{$this->class}\"";
      if($this->id) $return .= " id=\"$this->id\"";
      if($this->href) $return .= " href=\"$this->href\"";
-     $return .= ">$this->content</$this->name>\n";
+     $return .= ">";
      return $return;
   }
 }

@@ -191,20 +191,20 @@ class Container extends BaseElement {
     return $return;
   }
   
+  function renderOpening() {
+    return parent::renderOpening() . "\n";
+  }
+  
   /**
    * Render the container
    * 
    * @return string
    */
-  function render() {
-    $return = "<$this->name";
-    if($this->class) $return .= " class=\"$this->class\"";
-    if($this->id) $return .= " id=\"$this->id\"";
-    $return .= ">\n";
+  function renderContent() {
+    $return = "";
     foreach($this->parts as $part) {
       $return .= $part->render();
     }
-    $return .= "</$this->name>\n";
     return $return;
   }
 }

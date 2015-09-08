@@ -50,22 +50,27 @@ class SelectBox extends \HTML\Container {
     return $return;
   }
   
-  /**
-   * Render the element
-   * 
-   * @return string
-   */
-  function render() {
+  function renderOpening() {
     $return = "<select";
     if($this->class) $return .= " class=\"{$this->class}\"";
     if($this->id) $return .= " id=\"$this->id\"";
     if($this->fieldName) $return .= " name=\"$this->fieldName\"";
     if($this->size) $return .= " size=\"$this->size\"";
     $return .= ">";
+    return $return;
+  }
+  
+  /**
+   * Render the element
+   * 
+   * @return string
+   */
+  function render() {
+    $return = $this->renderOpening();
     foreach($this->parts as $part) {
       $return .= $part->render();
     }
-    $return .= "</select>\n";
+    $return .= $this->renderClosing();
     return $return;
   }
 }

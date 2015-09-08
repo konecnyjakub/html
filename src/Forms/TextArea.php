@@ -57,18 +57,18 @@ class TextArea extends \HTML\Element {
   }
   
   /**
-   * Render the element
+   * Render opening tag
    * 
    * @return string
    */
-  function render() {
+  function renderOpening() {
     $return = "<textarea";
     if($this->class) $return .= " class=\"{$this->class}\"";
     if($this->id) $return .= " id=\"$this->id\"";
     if($this->fieldName) $return .= " name=\"$this->fieldName\"";
     if($this->rows) $return .= " rows=\"$this->rows\"";
     if($this->cols) $return .= " cols=\"$this->cols\"";
-    $return .= ">$this->content</textarea>\n";
+    $return .= ">";
     return $return;
   }
 }

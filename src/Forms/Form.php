@@ -96,12 +96,8 @@ class Form extends \HTML\Container {
     return $return;
   }
   
-  /**
-   * Render the form
-   * 
-   * @return string
-   */
-  function render() {
+  
+  function renderOpening() {
     $return = "<form";
     if($this->id) { $return .= " id=\"$this->id\""; }
     if($this->formName) { $return .= " name=\"$this->formName\""; }
@@ -110,10 +106,19 @@ class Form extends \HTML\Container {
     if($this->action) { $return .= " action=\"$this->action\""; }
     if($this->target) { $return .= " target=\"$this->target\""; }
     $return .= ">\n";
+  }
+  
+  /**
+   * Render the form
+   * 
+   * @return string
+   */
+  function render() {
+    $return = $this->renderOpening();
     foreach($this->parts as $part) {
       $return .= $part->render();
     }
-    $return .= "</form>\n";
+    $return .= $this->renderClosing();
     return $return;
   }
 }

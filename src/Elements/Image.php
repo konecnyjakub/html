@@ -59,7 +59,7 @@ class Image extends \HTML\Element {
    * @return string
    */
   function render() {
-    $return = "<img src='$this->source'";
+    $return = "<img src=\"$this->source\"";
     if($this->alt) $return .= " alt=\"$this->alt\"";
     if($this->title) $return .= " title=\"$this->title\"";
     if($this->align) $return .= " align=\"$this->align\"";
