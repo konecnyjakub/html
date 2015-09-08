@@ -257,7 +257,7 @@ class Page {
   /**
    * Append an element
    * 
-   * @param Element|Container $element
+   * @param BaseElement $element
    */
   function append($element) {
     if($element instanceof BaseElement) $this->elements[] = $element;
