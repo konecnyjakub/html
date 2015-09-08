@@ -1,6 +1,12 @@
 <?php
 namespace HTML;
 
+/**
+ * Trait Container
+ * Contains common methods for Page and Container
+ * 
+ * @author Jakub Konečný
+ */
 trait TContainer {
   /** @var array */
   protected $elements = array();
