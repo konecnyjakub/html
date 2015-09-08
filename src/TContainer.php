@@ -28,7 +28,7 @@ trait TContainer {
   function inject($content) {
     if(is_string($content)) $this->elements[] = new HTMLCode($content);
     elseif($content instanceof IRenderable) $this->elements[] = $content;
-    else throw new InvalidValueException("Invalid value for parametr content passed to method Page::inject. Expected IRenderable or string.");
+    else throw new InvalidValueException("Invalid value for parametr content passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected IRenderable or string.");
   }
   
   /**
@@ -48,7 +48,7 @@ trait TContainer {
   function addText($node) {
     if(is_string($node)) $this->elements[] = new TextNode($node);
     elseif($node instanceof TextNode) $this->elements[] = $node;
-    else throw new InvalidValueException("Invalid value for parametr node passed to method Container::addText. Expected string or TextNode.");
+    else throw new InvalidValueException("Invalid value for parametr node passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected string or TextNode.");
   }
   
   /**
