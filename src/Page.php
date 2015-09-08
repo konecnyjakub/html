@@ -153,5 +153,9 @@ default:
 </html>";
     return $page;
   }
+  
+  function __toString() {
+    return $this->render();
+  }
 }
 ?>
