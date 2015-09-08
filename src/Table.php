@@ -66,23 +66,19 @@ class Table extends Container {
    * @return string
    */
   function render() {
-    $return = "<table>\n
-<tr>";
+    $return = "<table>\n<tr>";
     foreach($this->collsNames as $name) {
       $return .= "<th>$name</th>";
     }
-    $return .= "</tr>\n
-";
+    $return .= "</tr>\n";
     foreach($this->rows as $row) {
       $return .= "<tr>";
       foreach($row as $coll) {
         $return .= "<td>$coll</td>";
       }
-      $return .= "</tr>\n
-";
+      $return .= "</tr>\n";
     }
-    $return .= "</table>\n
-";
+    $return .= "</table>\n";
     return $return;
   }
 }
