@@ -69,7 +69,7 @@ class Table extends Container {
     $return = "<table>\n
 <tr>";
     foreach($this->collsNames as $name) {
-      $return .= "<td>$name</td>";
+      $return .= "<th>$name</th>";
     }
     $return .= "</tr>\n
 ";
