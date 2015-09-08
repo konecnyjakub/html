@@ -23,12 +23,12 @@ trait TContainer {
   /**
    * Insert text/html code
    * 
-   * @param HTMLCode|string $content
+   * @param  IRenderable|string $content
    */
   function inject($content) {
     if(is_string($content)) $this->elements[] = new HTMLCode($content);
-    elseif($content instanceof HTMLCode) $this->elements[] = $content;
-    else throw new InvalidValueException("Invalid value for parametr content passed to method Page::inject. Expected HTMLCode or string.");
+    elseif($content instanceof IRenderable) $this->elements[] = $content;
+    else throw new InvalidValueException("Invalid value for parametr content passed to method Page::inject. Expected IRenderable or string.");
   }
   
   /**
