@@ -102,16 +102,17 @@ class Page {
   protected function renderMetas() {
     $output = "";
     foreach($this->metas as $meta) {
-    $meta["name"] = strtolower($meta["name"]);
+      $meta["name"] = strtolower($meta["name"]);
+      if($meta["name"] === "charset") {
+        $output .= "  <meta charset=\"{$meta["content"]}\">\n";
+        continue;
+      }
 switch($meta["name"]) {
 case "content-type":
 case "content-language":
 case "refresh":
 case "cache-control":
   $attribute = "http-equiv";
-  break;
-case "charset":
-  $attribute = "charset";
   break;
 default:
   $attribute = "name";
