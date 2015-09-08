@@ -6,7 +6,7 @@ namespace HTML;
  *
  * @author Jakub Konečný
  */
-class Page implements IRenderable {
+class Page {
   /** @var string */
   protected $title;
   /** @var array */
