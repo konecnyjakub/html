@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "HTML": "src/"
+            "HTML\\": "src/"
         },
         "classmap": [
             "src/exceptions.php"
