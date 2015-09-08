@@ -23,6 +23,12 @@ class Table extends Container {
     else throw new InvalidValueException("Invalid value for parametr colls passed to method Table::__construct. Expected integer.");
   }
   
+  /**
+   * @param int $coll
+   * @param string $name
+   * @return Table
+   * @throws InvalidValueException
+   */
   function setCollName($coll, $name) {
     if($coll > $this->colls OR $coll <= 0) exit("Invalid column.");
     if(!is_string($name)) throw new InvalidValueException("Invalid value for parametr name passed to method Table::setCollName. Expected string.");
