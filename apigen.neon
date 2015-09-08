@@ -1,0 +1,5 @@
+source: .
+destination: ./api
+title: HTML Library
+charset:
+    0: UTF-8
