@@ -50,10 +50,22 @@ trait TContainer {
    * 
    * @param string $content
    * @return Elements\Paragraph
-   * 
    */
   function addParagraph($content = "") {
     $element = new Elements\Paragraph($content);
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
+    return $return;
+  }
+  
+  /**
+   * Add a row break
+   * 
+   * @return Elements\RowBreak
+   */
+  function addRowBreak() {
+    $element = new Elements\RowBreak();
     $count = count($this->elements);
     $this->elements[$count] = $element;
     $return = & $this->elements[$count];
