@@ -61,12 +61,12 @@ class Table extends Container {
   }
   
   /**
-   * Render the element
+   * Render element's content
    * 
    * @return string
    */
-  function render() {
-    $return = "<table>\n<tr>";
+  function renderContent() {
+    $return = "<tr>";
     foreach($this->collsNames as $name) {
       $return .= "<th>$name</th>";
     }
@@ -78,7 +78,6 @@ class Table extends Container {
       }
       $return .= "</tr>\n";
     }
-    $return .= "</table>\n";
     return $return;
   }
 }
