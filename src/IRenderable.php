@@ -2,7 +2,7 @@
 namespace HTML;
 
 /**
- * Element that be rendered
+ * Element that can be rendered
  * 
  * @author Jakub Konečný
  */
