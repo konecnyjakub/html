@@ -60,9 +60,9 @@ class Form extends \HTML\Container {
    */
   function addInput($name = "", $type = "", $size = "", $value = "", $src = "") {
     $element = new Input($name, $type, $size, $value, $src);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -76,9 +76,9 @@ class Form extends \HTML\Container {
    */
   function addTextArea($name = "", $rows = "", $cols = "", $value = "") {
     $element = new TextArea($name, $rows, $cols, $value);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -90,9 +90,9 @@ class Form extends \HTML\Container {
    */
   function addSelectBox($name = "", $size = "") {
     $element = new SelectBox($name, $size);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -115,7 +115,7 @@ class Form extends \HTML\Container {
    */
   function render() {
     $return = $this->renderOpening();
-    foreach($this->parts as $part) {
+    foreach($this->elements as $part) {
       $return .= $part->render();
     }
     $return .= $this->renderClosing();

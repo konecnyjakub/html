@@ -8,7 +8,7 @@ namespace HTML;
  */
 class Container extends BaseElement {
   /** @var array */
-  protected $parts = array();
+  protected $elements = array();
   
   /**
    * @param string $name
@@ -24,8 +24,8 @@ class Container extends BaseElement {
    * @return int
    */
   function append(BaseElement $element) {
-    $count = count($this->parts);
-    $this->parts[] = $element;
+    $count = count($this->elements);
+    $this->elements[] = $element;
     return $count;
   }
   
@@ -34,8 +34,8 @@ class Container extends BaseElement {
    * @return void
    */
   function inject($content) {
-    if(is_string($content)) $this->parts[] = new HTMLCode($content);
-    elseif($content instanceof HTMLCode) $this->parts[] = $content;
+    if(is_string($content)) $this->elements[] = new HTMLCode($content);
+    elseif($content instanceof HTMLCode) $this->elements[] = $content;
     else throw new InvalidValueException("Invalid value for parametr content passed to method Page::inject. Expected HTMLCode or string.");
   }
   
@@ -44,7 +44,7 @@ class Container extends BaseElement {
    * @return void
    */
   function remove($nodeId) {
-    unset($this->parts[$nodeId]);
+    unset($this->elements[$nodeId]);
   }
   
   /**
@@ -52,8 +52,8 @@ class Container extends BaseElement {
    * @return void
    */
   function addText($node) {
-    if(is_string($node)) $this->parts[] = new TextNode($node);
-    elseif($node instanceof TextNode) $this->parts[] = $node;
+    if(is_string($node)) $this->elements[] = new TextNode($node);
+    elseif($node instanceof TextNode) $this->elements[] = $node;
     else throw new InvalidValueException("Invalid value for parametr node passed to method Container::addText. Expected string or TextNode.");
   }
   
@@ -63,9 +63,9 @@ class Container extends BaseElement {
    */
   function addParagraph($content = "") {
     $element = new Elements\Paragraph($content);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -75,9 +75,9 @@ class Container extends BaseElement {
    */
   function addImage($source = "") {
     $element = new Elements\Image($source);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   } 
   
@@ -88,9 +88,9 @@ class Container extends BaseElement {
    */
   function addHeading($level, $content = "") {
     $element = new Elements\Heading($level, $content);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -100,9 +100,9 @@ class Container extends BaseElement {
    */
   function addDiv($id = "") {
     $element = new Elements\Div($id);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -112,9 +112,9 @@ class Container extends BaseElement {
    */
   function addSpan($id = "") {
     $element = new Elements\Span($id);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -124,9 +124,9 @@ class Container extends BaseElement {
    */
   function addTable($colls) {
     $element = new Table($colls);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -137,9 +137,9 @@ class Container extends BaseElement {
    */
   function addList($type = "ul") {
     $element = new Elements\ListElement($type);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -151,9 +151,9 @@ class Container extends BaseElement {
    */
   function addLink($text = "", $href = "") {
     $element = new Elements\Link($text, $href);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -168,9 +168,9 @@ class Container extends BaseElement {
     $type = strtolower($type);
     if(!in_array($type, $allowed_types)) $type = "section";
     $element = new Container($type, $id);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -184,9 +184,9 @@ class Container extends BaseElement {
    */
   function addForm($name = "", $action = "", $method = "", $target = "", $id = "") {
     $element = new Forms\Form($name, $action, $method, $target, $id);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -201,7 +201,7 @@ class Container extends BaseElement {
    */
   function renderContent() {
     $return = "";
-    foreach($this->parts as $part) {
+    foreach($this->elements as $part) {
       $return .= $part->render();
     }
     return $return;

@@ -44,9 +44,9 @@ class SelectBox extends \HTML\Container {
    */
   function addOption($value = "", $text = "") {
     $element = new SelectBoxOption($value, $text);
-    $count = count($this->parts);
-    $this->parts[$count] = $element;
-    $return = & $this->parts[$count];
+    $count = count($this->elements);
+    $this->elements[$count] = $element;
+    $return = & $this->elements[$count];
     return $return;
   }
   
@@ -67,7 +67,7 @@ class SelectBox extends \HTML\Container {
    */
   function render() {
     $return = $this->renderOpening();
-    foreach($this->parts as $part) {
+    foreach($this->elements as $part) {
       $return .= $part->render();
     }
     $return .= $this->renderClosing();

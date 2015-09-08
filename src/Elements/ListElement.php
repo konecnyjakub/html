@@ -29,8 +29,8 @@ default:
    * @return void
    */
   function addItem($text) {
-    $count = count($this->parts);
-    $this->parts[$count] = new ListItem($text);
+    $count = count($this->elements);
+    $this->elements[$count] = new ListItem($text);
   }
   
   /**
@@ -40,8 +40,8 @@ default:
    * @return void
    */
   function append(ListItem $item) {
-    $count = count($this->parts);
-    $this->parts[$count] = $item;
+    $count = count($this->elements);
+    $this->elements[$count] = $item;
   }
   
   /**
@@ -51,7 +51,7 @@ default:
    * @return void
    */
   function remove($node) {
-    unset($this->parts[$node]);
+    unset($this->elements[$node]);
   }
 }
 ?>
