@@ -23,8 +23,7 @@ class Container extends BaseElement {
    * @param Element|Container $element
    * @return int
    */
-  function append($element) {
-    if(!($element instanceof BaseElement)) throw new InvalidValueException("Invalid value for parametr element passed to method Container::append. Expected Element or Container.");
+  function append(BaseElement $element) {
     $count = count($this->parts);
     $this->parts[] = $element;
     return $count;

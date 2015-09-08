@@ -259,9 +259,8 @@ class Page {
    * 
    * @param BaseElement $element
    */
-  function append($element) {
-    if($element instanceof BaseElement) $this->elements[] = $element;
-    else throw new InvalidValueException("Invalid value for parametr element passed to method Page::append. Expected Element or Container.");
+  function append(BaseElement $element) {
+    $this->elements[] = $element;
   }
   
   /**
