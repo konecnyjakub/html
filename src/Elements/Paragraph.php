@@ -6,7 +6,7 @@ namespace HTML\Elements;
  *
  * @author Jakub Konečný
  */
-class Paragraph extends \HTML\Element{
+class Paragraph extends \HTML\Element {
   /**
    * @param string $content
    */
