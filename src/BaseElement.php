@@ -6,7 +6,7 @@ namespace HTML;
  *
  * @author Jakub Konečný
  */
-abstract class BaseElement {
+abstract class BaseElement implements IRenderable {
   /** @var string */
   protected $name;
   /** @var string */

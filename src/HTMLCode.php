@@ -6,7 +6,7 @@ namespace HTML;
  *
  * @author Jakub Konečný
  */
-class HTMLCode {
+class HTMLCode implements IRenderable {
   /** @var string */
   protected $content;
   

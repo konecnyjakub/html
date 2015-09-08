@@ -6,7 +6,7 @@ namespace HTML;
  *
  * @author Jakub Konečný
  */
-class TextNode {
+class TextNode implements IRenderable {
   /** @var string */
   protected $content;
   
