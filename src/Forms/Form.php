@@ -108,19 +108,5 @@ class Form extends \HTML\Container {
     $return .= ">\n";
     return $return;
   }
-  
-  /**
-   * Render the form
-   * 
-   * @return string
-   */
-  function render() {
-    $return = $this->renderOpening();
-    foreach($this->elements as $part) {
-      $return .= $part->render();
-    }
-    $return .= $this->renderClosing();
-    return $return;
-  }
 }
 ?>
