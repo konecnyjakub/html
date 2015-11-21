@@ -106,6 +106,7 @@ class Form extends \HTML\Container {
     if($this->action) { $return .= " action=\"$this->action\""; }
     if($this->target) { $return .= " target=\"$this->target\""; }
     $return .= ">\n";
+    return $return;
   }
   
   /**
