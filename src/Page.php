@@ -49,6 +49,7 @@ class Page {
   }
   
   /**
+   * Attach a channel to the page
    * 
    * @param string $url
    * @param string $title
@@ -58,6 +59,7 @@ class Page {
   }
   
   /**
+   * Attach a style to the page
    * 
    * @param string $style
    */
@@ -66,6 +68,7 @@ class Page {
   }
   
   /**
+   * Attach styles to the page
    * 
    * @param array $styles
    */
@@ -76,6 +79,7 @@ class Page {
   }
   
   /**
+   * Attach a script to the page
    * 
    * @param string $script
    */
@@ -84,6 +88,7 @@ class Page {
   }
   
   /**
+   * Attach scripts to the page
    * 
    * @param array $scripts
    */

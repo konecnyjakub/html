@@ -96,7 +96,11 @@ class Form extends \HTML\Container {
     return $return;
   }
   
-  
+  /**
+   * Render opening tag
+   * 
+   * @return string
+   */
   function renderOpening() {
     $return = "<form";
     if($this->id) { $return .= " id=\"$this->id\""; }

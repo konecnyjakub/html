@@ -19,6 +19,11 @@ class Container extends BaseElement {
   
   use TContainer;
   
+  /**
+   * Render opening tag
+   * 
+   * @return string
+   */
   function renderOpening() {
     return parent::renderOpening() . "\n";
   }
