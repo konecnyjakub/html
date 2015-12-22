@@ -7,13 +7,6 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 class TextArea extends \HTML\Element {
-  /** @var string */
-  protected $fieldName;
-  /** @var int */
-  protected $rows;
-  /** @var int */
-  protected $cols;
-  
   /**
    * @param string $name
    * @param int $rows
@@ -22,31 +15,31 @@ class TextArea extends \HTML\Element {
    */
   function __construct($name = "", $rows = "", $cols = "", $value = "") {
     parent::__construct("textarea");
-    $this->fieldName = (string) $name;
+    $this->attributes["name"] = (string) $name;
     $this->content = (string) $value;
-    $this->rows = (int) $rows;
-    $this->cols = (int) $cols;
+    $this->attributes["rows"] = (int) $rows;
+    $this->attributes["cols"] = (int) $cols;
   }
   
   /**
    * @param string $name
    */
   function setFieldName($name) {
-    $this->fieldName = (string) $name;
+    $this->attributes["name"] = (string) $name;
   }
   
   /**
    * @param int $number
    */
   function setRows($number) {
-    $this->rows = (int) $number;
+    $this->attributes["rows"] = (int) $number;
   }
   
   /**
    * @param int $number
    */
   function setCols($number) {
-    $this->cols = (int) $number;
+    $this->attributes["cols"] = (int) $number;
   }
   
   /**
@@ -54,22 +47,6 @@ class TextArea extends \HTML\Element {
    */
   function setValue($value) {
     $this->content = (string) $value;
-  }
-  
-  /**
-   * Render opening tag
-   * 
-   * @return string
-   */
-  function renderOpening() {
-    $return = "<textarea";
-    if($this->class) $return .= " class=\"{$this->class}\"";
-    if($this->id) $return .= " id=\"$this->id\"";
-    if($this->fieldName) $return .= " name=\"$this->fieldName\"";
-    if($this->rows) $return .= " rows=\"$this->rows\"";
-    if($this->cols) $return .= " cols=\"$this->cols\"";
-    $return .= ">";
-    return $return;
   }
 }
 ?>

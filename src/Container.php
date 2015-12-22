@@ -14,7 +14,7 @@ class Container extends BaseElement {
    */
   function __construct($name, $id = "") {
     $this->name = (string) $name;
-    $this->id = (string) $id;
+    $this->attributes["id"] = $this->id = (string) $id;
   }
   
   use TContainer;

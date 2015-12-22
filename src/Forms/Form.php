@@ -7,38 +7,33 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 class Form extends \HTML\Container {
-  protected $formName;
-  protected $action;
-  protected $method;
-  protected $target;
-  
   function __construct($name = "", $action = "", $method = "", $target = "", $id = "") {
     parent::__construct("form", $id);
-    $this->formName = (string) $name;
-    $this->action = (string) $action;
-    if($method == "get" OR $method == "post") $this->method = $method;
-    $this->target = (string) $target;
+    $this->attributes["name"] = (string) $name;
+    $this->attributes["action"] = (string) $action;
+    if($method == "get" OR $method == "post") $this->attributes["method"] = $method;
+    $this->attributes["target"] = (string) $target;
   }
   
   /**
    * @param string $name
    */
   function setFormName($name) {
-    $this->formName = (string) $name;
+    $this->attributes["name"] = (string) $name;
   }
   
   /**
    * @param string $url
    */
   function setAction($url) {
-    $this->action = (string) $url;
+    $this->attributes["action"] = (string) $url;
   }
   
   /**
    * @param string $frame
    */
   function setTarget($frame) {
-    $this->target = (string) $frame;
+    $this->attributes["target"] = (string) $frame;
   }
   
   /**
@@ -46,7 +41,7 @@ class Form extends \HTML\Container {
    */
   function setMethod($method) {
     $method = strtolower($method);
-    if($method == "get" OR $method == "post") $this->method = $method;
+    if($method == "get" OR $method == "post") $this->attributes["method"] = $method;
   }
   
   /**
@@ -93,23 +88,6 @@ class Form extends \HTML\Container {
     $count = count($this->elements);
     $this->elements[$count] = $element;
     $return = & $this->elements[$count];
-    return $return;
-  }
-  
-  /**
-   * Render opening tag
-   * 
-   * @return string
-   */
-  function renderOpening() {
-    $return = "<form";
-    if($this->id) { $return .= " id=\"$this->id\""; }
-    if($this->formName) { $return .= " name=\"$this->formName\""; }
-    if($this->class) { $return .= " class=\"$this->class\""; }
-    if($this->method) { $return .= " method=\"$this->method\""; }
-    if($this->action) { $return .= " action=\"$this->action\""; }
-    if($this->target) { $return .= " target=\"$this->target\""; }
-    $return .= ">\n";
     return $return;
   }
 }

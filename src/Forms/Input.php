@@ -7,16 +7,6 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 class Input extends \HTML\Element {
-  /** @var string */
-  protected $type;
-  /** @var string */
-  protected $fieldName;
-  /** @var string */
-  protected $value;
-  /** @var int */
-  protected $size;
-  /** @var string */
-  protected $src;
   /** @var array */
   protected $allowed_types = array("text", "password", "checkbox", "radio", "hidden", "submit", "reset", "image", "file",
     "search", "tel", "url", "email", "number", "range", "color",
@@ -26,11 +16,11 @@ class Input extends \HTML\Element {
     parent::__construct("input");
     $type = strtolower($type);
     if(!in_array($type, $this->allowed_types)) throw new InvalidValueException("Invalid value for parametr type passed to method FormInput::__construct.");
-    $this->type = $type;
-    $this->fieldName = (string) $name;
-    $this->size = (int) $size;
-    if($type == "image") $this->value = (string) $value;
-    $this->src = (string) $src;
+    $this->attributes["type"] = $type;
+    $this->attributes["name"] = (string) $name;
+    $this->attributes["size"] = (int) $size;
+    $this->attributes["value"] = (string) $value;
+    if($type == "image") $this->attributes["src"] = (string) $src;
   }
   
   /**
@@ -38,53 +28,44 @@ class Input extends \HTML\Element {
    */
   function setType($type) {
     if(!in_array($type, $this->allowed_types)) exit("Invalid value for parametr type passed to method FormInput::setType.");
-    else $this->type = strtolower($type);
+    else $this->attributes["type"] = strtolower($type);
   }
   
   /**
    * @param string $name
    */
   function setFieldName($name) {
-    $this->fieldName = (string) $name;
+    $this->attributes["name"] = (string) $name;
   }
   
   /**
    * @param string $value
    */
   function setValue($value) {
-    $this->value = (string) $value;
+    $this->attributes["value"] = (string) $value;
   }
   
   /**
    * @param int $size
    */
   function setSize($size) {
-    $this->size = (string) $size;
+    $this->attributes["size"] = (string) $size;
   }
   
   /**
    * @param string $src
    */
   function setSrc($src) {
-    if($this->type == "image") $this->src = (string) $src;
+    if($this->type == "image") $this->attributes["src"] = (string) $src;
   }
   
   /**
-   * Render the element
+   * Render closing tag
    * 
    * @return string
    */
-  function render() {
-    $return = "<input";
-    if($this->class) $return .= " class=\"{$this->class}\"";
-    if($this->id) $return .= " id=\"$this->id\"";
-    if($this->type) $return .= " type=\"$this->type\"";
-    if($this->fieldName) $return .= " name=\"$this->fieldName\"";
-    if($this->value) $return .= " value=\"$this->value\"";
-    if($this->size) $return .= " size=\"$this->size\"";
-    if($this->src) $return .= " src=\"$this->src\"";
-    $return .= ">\n";
-    return $return;
+  function renderClosing() {
+    return "\n";
   }
 }
 ?>

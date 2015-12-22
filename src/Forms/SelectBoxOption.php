@@ -7,16 +7,13 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 class SelectBoxOption extends \HTML\Element {
-  /** @var string */
-  protected $value;
-  
   /**
    * @param string $value
    * @param string $text
    */
   function __construct($value = "", $text = "") {
     parent::__construct("textarea");
-    $this->value = (string) $value;
+    $this->attributes["value"] = (string) $value;
     $this->content = (string) $text;
   }
   
@@ -24,7 +21,7 @@ class SelectBoxOption extends \HTML\Element {
    * @param string $value
    */
   function setValue($value) {
-    $this->content = (string) $value;
+    $this->attributes["value"] = (string) $value;
   }
   
   /**
@@ -32,18 +29,6 @@ class SelectBoxOption extends \HTML\Element {
    */
   function setText($text) {
     $this->content = (string) $text;
-  }
-  
-  /**
-   * Render opening tag
-   * 
-   * @return string
-   */
-  function renderOpening() {
-    $return = "<option";
-    if($this->value) $return .= " value=\"{$this->value}\"";
-    $return .= ">";
-    return $return;
   }
 }
 ?>

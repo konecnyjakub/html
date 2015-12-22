@@ -9,23 +9,21 @@ namespace HTML;
 abstract class BaseElement implements IRenderable {
   /** @var string */
   protected $name;
-  /** @var string */
-  protected $class;
-  /** @var string */
-  protected $id;
+  /** @var string[] */
+  protected $attributes;
   
   /**
    * @param string $id
    */
   function setId($id) {
-    $this->id = (string) $id;
+    $this->attributes["id"] = $this->id = (string) $id;
   }
   
   /**
    * @param string $class
    */
   function setClass($class) {
-    $this->class = (string) $class;
+    $this->attributes["class"] = $this->class = (string) $class;
   }
   
   /**
@@ -35,8 +33,9 @@ abstract class BaseElement implements IRenderable {
    */
   function renderOpening() {
     $return = "<$this->name";
-    if($this->class) $return .= " class=\"{$this->class}\"";
-    if($this->id) $return .= " id=\"$this->id\"";
+    foreach($this->attributes as $key => $value) {
+      if(strlen($value) > 0) $return .= " $key=\"$value\"";
+    }
     $return .= ">";
     return $return;
   }

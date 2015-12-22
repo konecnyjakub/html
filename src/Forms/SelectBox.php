@@ -7,33 +7,28 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 class SelectBox extends \HTML\Container {
-  /** @var string */
-  protected $fieldName;
-  /** @var int */
-  protected $size;
-  
   /**
    * @param string $name
    * @param int $size
    */
   function __construct($name = "", $size = "") {
     parent::__construct("select");
-    $this->fieldName = (string) $name;
-    $this->size = (int) $size;
+    $this->attributes["name"] = (string) $name;
+    $this->attributes["size"] = (int) $size;
   }
   
   /**
    * @param string $name
    */
   function setFieldName($name) {
-    $this->fieldName = (string) $name;
+    $this->attributes["name"] = (string) $name;
   }
   
   /**
    * @param int $size
    */
   function setSize($size) {
-    $this->size = (int) $size;
+    $this->attributes["size"] = (int) $size;
   }
   
   /**
@@ -47,16 +42,6 @@ class SelectBox extends \HTML\Container {
     $count = count($this->elements);
     $this->elements[$count] = $element;
     $return = & $this->elements[$count];
-    return $return;
-  }
-  
-  function renderOpening() {
-    $return = "<select";
-    if($this->class) $return .= " class=\"{$this->class}\"";
-    if($this->id) $return .= " id=\"$this->id\"";
-    if($this->fieldName) $return .= " name=\"$this->fieldName\"";
-    if($this->size) $return .= " size=\"$this->size\"";
-    $return .= ">";
     return $return;
   }
   
