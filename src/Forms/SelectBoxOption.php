@@ -12,7 +12,7 @@ class SelectBoxOption extends \HTML\Element {
    * @param string $text
    */
   function __construct($value = "", $text = "") {
-    parent::__construct("textarea");
+    parent::__construct("option");
     $this->attributes["value"] = (string) $value;
     $this->content = (string) $text;
   }
