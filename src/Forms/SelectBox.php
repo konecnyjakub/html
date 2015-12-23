@@ -44,19 +44,5 @@ class SelectBox extends \HTML\Container {
     $return = & $this->elements[$count];
     return $return;
   }
-  
-  /**
-   * Render the element
-   * 
-   * @return string
-   */
-  function render() {
-    $return = $this->renderOpening();
-    foreach($this->elements as $part) {
-      $return .= $part->render();
-    }
-    $return .= $this->renderClosing();
-    return $return;
-  }
 }
 ?>
