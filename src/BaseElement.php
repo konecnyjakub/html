@@ -16,14 +16,14 @@ abstract class BaseElement implements IRenderable {
    * @param string $id
    */
   function setId($id) {
-    $this->attributes["id"] = $this->id = (string) $id;
+    $this->attributes["id"] = (string) $id;
   }
   
   /**
    * @param string $class
    */
   function setClass($class) {
-    $this->attributes["class"] = $this->class = (string) $class;
+    $this->attributes["class"] = (string) $class;
   }
   
   /**
