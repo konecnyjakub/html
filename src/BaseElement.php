@@ -33,6 +33,9 @@ abstract class BaseElement implements IRenderable {
     return $return;
   }
 
+  /**
+   * Render closing tag
+   */
   protected function renderClosing(): string {
     return "</$this->name>\n";
   }
