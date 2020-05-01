@@ -60,8 +60,7 @@ trait TContainer {
     $element = new Elements\Paragraph($content);
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   }
   
   /**
@@ -71,10 +70,9 @@ trait TContainer {
     $element = new Elements\RowBreak();
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   }
-  
+
   /**
    * Add new div element
    */
@@ -82,8 +80,7 @@ trait TContainer {
     $element = new Elements\Div($id);
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   }
   
   /**
@@ -93,8 +90,7 @@ trait TContainer {
     $element = new Elements\Span($id);
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   }
   
   /**
@@ -104,16 +100,14 @@ trait TContainer {
     $element = new Table($colls);
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   }
 
   public function addList(string $type = "ul"): Elements\ListElement {
     $element = new Elements\ListElement($type);
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   }
   
   /**
@@ -123,8 +117,7 @@ trait TContainer {
     $element = new Elements\Image($source);
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   } 
   
   /**
@@ -134,8 +127,7 @@ trait TContainer {
     $element = new Elements\Heading($level, $content);
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   }
   
   /**
@@ -145,8 +137,7 @@ trait TContainer {
     $element = new Elements\Link($text, $href);
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   }
   
   /**
@@ -161,8 +152,7 @@ trait TContainer {
     $element = new Container($type, $id);
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   }
   
   /**
@@ -172,8 +162,7 @@ trait TContainer {
     $element = new Forms\Form($name, $action, $method, $target, $id);
     $count = count($this->elements);
     $this->elements[$count] = $element;
-    $return = & $this->elements[$count];
-    return $return;
+    return $this->elements[$count];
   }
 }
 ?>

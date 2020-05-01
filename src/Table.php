@@ -30,8 +30,7 @@ class Table extends Container {
     }
     $count = count($this->rows);
     $this->rows[$count] = $row;
-    $rowNum = &$this->rows[$count];
-    return $rowNum;
+    return $this->rows[$count];
   }
 
   public function removeRow(int $row): void {
