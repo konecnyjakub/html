@@ -6,7 +6,7 @@ namespace HTML\Forms;
  *
  * @author Jakub Konečný
  */
-class Input extends \HTML\Element {
+final class Input extends \HTML\Element {
   /** @var string[] */
   protected array $allowed_types = ["text", "password", "checkbox", "radio", "hidden", "submit", "reset", "image", "file",
     "search", "tel", "url", "email", "number", "range", "color",

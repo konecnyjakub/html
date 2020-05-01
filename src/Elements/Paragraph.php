@@ -6,7 +6,7 @@ namespace HTML\Elements;
  *
  * @author Jakub Konečný
  */
-class Paragraph extends \HTML\Container {
+final class Paragraph extends \HTML\Container {
   public function __construct(string $id = "") {
     parent::__construct("p", $id);
   }

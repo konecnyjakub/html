@@ -6,7 +6,7 @@ namespace HTML;
  *
  * @author Jakub Konečný
  */
-class HTMLCode implements IRenderable {
+final class HTMLCode implements IRenderable {
   protected string $content;
 
   public function __construct(string $content = "") {

@@ -6,7 +6,7 @@ namespace HTML\Elements;
  *
  * @author Jakub Konečný
  */
-class ListElement extends \HTML\Container {
+final class ListElement extends \HTML\Container {
   /**
    * @param string $type Type of the list
    */

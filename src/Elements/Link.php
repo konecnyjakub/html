@@ -6,7 +6,7 @@ namespace HTML\Elements;
  *
  * @author Jakub Konečný
  */
-class Link extends \HTML\Element {
+final class Link extends \HTML\Element {
   public function __construct(string $text = "", string $href = "") {
     parent::__construct("a", $text);
     $this->attributes["href"] = $href;

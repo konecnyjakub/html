@@ -6,7 +6,7 @@ namespace HTML\Forms;
  *
  * @author Jakub Konečný
  */
-class SelectBox extends \HTML\Container {
+final class SelectBox extends \HTML\Container {
   public function __construct(string $name = "", ?int $size = null) {
     parent::__construct("select");
     $this->attributes["name"] = $name;

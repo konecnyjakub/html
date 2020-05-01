@@ -6,7 +6,7 @@ namespace HTML\Elements;
  *
  * @author Jakub Konečný
  */
-class RowBreak extends \HTML\Element {
+final class RowBreak extends \HTML\Element {
   public function __construct() {
     parent::__construct("br");
   }

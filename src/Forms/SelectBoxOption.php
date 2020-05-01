@@ -6,7 +6,7 @@ namespace HTML\Forms;
  *
  * @author Jakub Konečný
  */
-class SelectBoxOption extends \HTML\Element {
+final class SelectBoxOption extends \HTML\Element {
   public function __construct(string $value = "", string $text = "") {
     parent::__construct("option");
     $this->attributes["value"] = $value;

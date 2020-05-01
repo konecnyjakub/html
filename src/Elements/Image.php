@@ -6,7 +6,7 @@ namespace HTML\Elements;
  *
  * @author Jakub Konečný
  */
-class Image extends \HTML\Element {
+final class Image extends \HTML\Element {
   public function __construct(string $source = "") {
     parent::__construct("img");
     $this->attributes["source"] = $source;

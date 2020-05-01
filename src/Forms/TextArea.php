@@ -6,7 +6,7 @@ namespace HTML\Forms;
  *
  * @author Jakub Konečný
  */
-class TextArea extends \HTML\Element {
+final class TextArea extends \HTML\Element {
   public function __construct(string $name = "", ?int $rows = null, ?int $cols = null, string $value = "") {
     parent::__construct("textarea");
     $this->attributes["name"] = $name;
