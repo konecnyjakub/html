@@ -20,13 +20,17 @@ class Table extends Container {
   }
 
   function setCollName(int $coll, string $name): Table {
-    if($coll > $this->colls OR $coll <= 0) exit("Invalid column.");
+    if($coll > $this->colls OR $coll <= 0) {
+      exit("Invalid column.");
+    }
     $this->collsNames[$coll] = $name;
     return $this;
   }
 
   function addRow(array $row): int {
-    if(count($row) > $this->colls) exit;
+    if(count($row) > $this->colls) {
+      exit;
+    }
     $count = count($this->rows);
     $this->rows[$count] = $row;
     $rowNum = &$this->rows[$count];
@@ -34,7 +38,9 @@ class Table extends Container {
   }
 
   function removeRow(int $row): void {
-    if(isset($this->rows[$row])) unset($this->rows[$row]);
+    if(isset($this->rows[$row])) {
+      unset($this->rows[$row]);
+    }
   }
   
   /**

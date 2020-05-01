@@ -24,9 +24,12 @@ trait TContainer {
    * @param  IRenderable|string $content
    */
   function inject($content) {
-    if(is_string($content)) $this->elements[] = new HTMLCode($content);
-    elseif($content instanceof IRenderable) $this->elements[] = $content;
-    else throw new InvalidValueException("Invalid value for parametr content passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected IRenderable or string.");
+    if(is_string($content)) {
+      $this->elements[] = new HTMLCode($content);
+    } elseif($content instanceof IRenderable) {
+      $this->elements[] = $content;
+    }
+    throw new InvalidValueException("Invalid value for parametr content passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected IRenderable or string.");
   }
   
   /**
@@ -42,9 +45,12 @@ trait TContainer {
    * @param TextNode|string $node
    */
   function addText($node) {
-    if(is_string($node)) $this->elements[] = new TextNode($node);
-    elseif($node instanceof TextNode) $this->elements[] = $node;
-    else throw new InvalidValueException("Invalid value for parametr node passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected string or TextNode.");
+    if(is_string($node)) {
+      $this->elements[] = new TextNode($node);
+    } elseif($node instanceof TextNode) {
+      $this->elements[] = $node;
+    }
+    throw new InvalidValueException("Invalid value for parametr node passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected string or TextNode.");
   }
   
   /**
@@ -149,7 +155,9 @@ trait TContainer {
   function addSection(string $id = "", string $type = "section"): Container {
     $allowed_types = array("section", "article", "aside", "nav", "header", "footer");
     $type = strtolower($type);
-    if(!in_array($type, $allowed_types)) $type = "section";
+    if(!in_array($type, $allowed_types)) {
+      $type = "section";
+    }
     $element = new Container($type, $id);
     $count = count($this->elements);
     $this->elements[$count] = $element;

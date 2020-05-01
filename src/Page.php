@@ -94,16 +94,16 @@ class Page {
         $output .= "  <meta charset=\"{$meta["content"]}\">\n";
         continue;
       }
-switch($meta["name"]) {
-case "content-type":
-case "content-language":
-case "refresh":
-case "cache-control":
-  $attribute = "http-equiv";
-  break;
-default:
-  $attribute = "name";
-  break;
+      switch($meta["name"]) {
+        case "content-type":
+          case "content-language":
+            case "refresh":
+              case "cache-control":
+                $attribute = "http-equiv";
+                break;
+                default:
+                  $attribute = "name";
+                  break;
 }
       $output .= "  <meta $attribute=\"{$meta["name"]}\" content=\"{$meta["content"]}\">\n";
     }

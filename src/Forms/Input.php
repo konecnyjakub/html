@@ -17,7 +17,9 @@ class Input extends \HTML\Element {
   function __construct(string $name = "", string $type = "", ?int $size = null, string $value = "", string $src = "") {
     parent::__construct("input");
     $type = strtolower($type);
-    if(!in_array($type, $this->allowed_types)) throw new InvalidValueException("Invalid value for parametr type passed to method FormInput::__construct.");
+    if(!in_array($type, $this->allowed_types)) {
+      throw new InvalidValueException("Invalid value for parametr type passed to method FormInput::__construct.");
+    }
     $this->attributes["type"] = $type;
     $this->attributes["name"] = $name;
     if($size !== null) {
@@ -28,8 +30,10 @@ class Input extends \HTML\Element {
   }
 
   function setType(string $type): void {
-    if(!in_array($type, $this->allowed_types)) exit("Invalid value for parametr type passed to method FormInput::setType.");
-    else $this->attributes["type"] = strtolower($type);
+    if(!in_array($type, $this->allowed_types)) {
+      exit("Invalid value for parametr type passed to method FormInput::setType.");
+    }
+    $this->attributes["type"] = strtolower($type);
   }
 
   function setFieldName(string $name): void {
@@ -45,7 +49,9 @@ class Input extends \HTML\Element {
   }
 
   function setSrc(string $src): void {
-    if($this->attributes["type"] == "image") $this->attributes["src"] = $src;
+    if($this->attributes["type"] == "image") {
+      $this->attributes["src"] = $src;
+    }
   }
 
   function renderClosing(): string {

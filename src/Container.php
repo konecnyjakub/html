@@ -7,13 +7,12 @@ namespace HTML;
  * @author Jakub Konečný
  */
 class Container extends BaseElement {
+  use TContainer;
 
   function __construct(string $name, string $id = "") {
     $this->name = $name;
     $this->attributes["id"] = $this->id = $id;
   }
-  
-  use TContainer;
 
   function renderOpening(): string {
     return parent::renderOpening() . "\n";

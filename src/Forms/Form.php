@@ -11,7 +11,9 @@ class Form extends \HTML\Container {
     parent::__construct("form", $id);
     $this->attributes["name"] = $name;
     $this->attributes["action"] = $action;
-    if($method == "get" OR $method == "post") $this->attributes["method"] = $method;
+    if($method == "get" OR $method == "post") {
+      $this->attributes["method"] = $method;
+    }
     $this->attributes["target"] = $target;
   }
 
@@ -29,7 +31,9 @@ class Form extends \HTML\Container {
 
   function setMethod(string $method): void {
     $method = strtolower($method);
-    if($method == "get" OR $method == "post") $this->attributes["method"] = $method;
+    if($method == "get" OR $method == "post") {
+      $this->attributes["method"] = $method;
+    }
   }
 
   function addInput(string $name = "", string $type = "", string $size = "", string $value = "", string $src = ""): Input {

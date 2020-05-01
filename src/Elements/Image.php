@@ -26,7 +26,9 @@ class Image extends \HTML\Element {
 
   function setAlign(string $align): void {
     $aligns = array("left", "right", "top", "middle", "baseline", "bottom", "absbottom", "absmiddle", "texttop");
-    if(in_array($align, $aligns)) $this->attributes["align"] = $align;
+    if(in_array($align, $aligns)) {
+      $this->attributes["align"] = $align;
+    }
   }
 
   function renderClosing(): string {

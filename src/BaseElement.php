@@ -26,7 +26,9 @@ abstract class BaseElement implements IRenderable {
   function renderOpening(): string {
     $return = "<$this->name";
     foreach($this->attributes as $key => $value) {
-      if(strlen($value) > 0) $return .= " $key=\"$value\"";
+      if(strlen($value) > 0) {
+        $return .= " $key=\"$value\"";
+      }
     }
     $return .= ">";
     return $return;
