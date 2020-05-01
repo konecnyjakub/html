@@ -29,7 +29,7 @@ final class Input extends \HTML\Element {
 
   public function setType(string $type): void {
     if(!in_array($type, $this->allowed_types)) {
-      exit("Invalid value for parametr type passed to method FormInput::setType.");
+      throw new \UnexpectedValueException("Invalid value for parametr type passed to method FormInput::setType.");
     }
     $this->attributes["type"] = strtolower($type);
   }

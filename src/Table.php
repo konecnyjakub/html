@@ -18,7 +18,7 @@ class Table extends Container {
 
   public function setCollName(int $coll, string $name): Table {
     if($coll > $this->colls OR $coll <= 0) {
-      exit("Invalid column.");
+      throw new \OutOfBoundsException("Invalid column.");
     }
     $this->collsNames[$coll] = $name;
     return $this;
@@ -26,7 +26,7 @@ class Table extends Container {
 
   public function addRow(array $row): int {
     if(count($row) > $this->colls) {
-      exit;
+      throw new \RuntimeException("The row contains too many columns.");
     }
     $count = count($this->rows);
     $this->rows[$count] = $row;
