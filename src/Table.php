@@ -7,12 +7,9 @@ namespace HTML;
  * @author Jakub Konečný
  */
 class Table extends Container {
-  /** @var int */
-  protected $colls;
-  /** @var array */
-  protected $collsNames = array();
-  /** @var array */
-  protected $rows = array();
+  protected int $colls;
+  protected array $collsNames = array();
+  protected array $rows = array();
 
   public function __construct(int $colls) {
     parent::__construct("table");

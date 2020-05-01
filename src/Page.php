@@ -7,16 +7,14 @@ namespace HTML;
  * @author Jakub Konečný
  */
 class Page {
-  /** @var string */
-  protected $title;
-  /** @var array */
-  protected $scripts = array();
-  /** @var array */
-  protected $metas = array();
-  /** @var array */
-  protected $styles = array();
-  /** @var array */
-  protected $channels = array();
+  protected string $title;
+  /** @var string[] */
+  protected array $scripts = array();
+  protected array $metas = array();
+  /** @var string[] */
+  protected array $styles = array();
+  /** @var string[] */
+  protected array $channels = array();
   
   use TContainer;
 
@@ -44,7 +42,7 @@ class Page {
    * Attach a channel to the page
    */
   public function addChannel(string $url, string $title) {
-    $this->channels["$title"] = $url;
+    $this->channels[$title] = $url;
   }
   
   /**

@@ -7,8 +7,7 @@ namespace HTML;
  * @author Jakub Konečný
  */
 abstract class Element extends BaseElement {
-  /** @var string */
-  protected $content;
+  protected string $content;
 
   public function __construct(string $name, string $content = "") {
     $this->name = $name;

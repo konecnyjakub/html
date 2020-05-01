@@ -8,8 +8,8 @@ namespace HTML;
  * @author Jakub Konečný
  */
 trait TContainer {
-  /** @var array */
-  protected $elements = array();
+  /** @var IRenderable[] */
+  protected array $elements = array();
   
   /**
    * Append an element

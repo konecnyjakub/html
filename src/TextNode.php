@@ -7,8 +7,7 @@ namespace HTML;
  * @author Jakub Konečný
  */
 class TextNode implements IRenderable {
-  /** @var string */
-  protected $content;
+  protected string $content;
 
   public function __construct(string $content = "") {
     $this->content = $content;

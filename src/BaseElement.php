@@ -7,10 +7,9 @@ namespace HTML;
  * @author Jakub Konečný
  */
 abstract class BaseElement implements IRenderable {
-  /** @var string */
-  protected $name;
+  protected string $name;
   /** @var string[] */
-  protected $attributes;
+  protected array $attributes;
 
   public function setId(string $id): void {
     $this->attributes["id"] = $id;
@@ -33,10 +32,7 @@ abstract class BaseElement implements IRenderable {
     $return .= ">";
     return $return;
   }
-  
-  /**
-   * Render closing tag
-   */
+
   protected function renderClosing(): string {
     return "</$this->name>\n";
   }
