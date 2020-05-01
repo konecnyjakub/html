@@ -6,7 +6,7 @@ namespace HTML;
  *
  * @author Jakub Konečný
  */
-abstract class Element extends BaseElement {
+class Element extends BaseElement {
   public string $content;
 
   public function __construct(string $name, string $content = "") {
