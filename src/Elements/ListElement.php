@@ -13,15 +13,10 @@ final class ListElement extends \HTML\Container {
    * @param string $type Type of the list
    */
   public function __construct(string $type = "ul") {
-    switch($type) {
-      case "ul":
-      case "ol":
-        parent::__construct($type);
-        break;
-      default:
-        parent::__construct("ul");
-        break;
+    if(!in_array($type, ["ul", "ol",], true)) {
+      $type = "ul";
     }
+    parent::__construct($type);
   }
   
   /**

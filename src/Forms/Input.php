@@ -9,8 +9,6 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 final class Input extends \HTML\Element {
-  protected string $content;
-
   /** @var string[] */
   protected array $allowed_types = ["text", "password", "checkbox", "radio", "hidden", "submit", "reset", "image", "file",
     "search", "tel", "url", "email", "number", "range", "color",
@@ -19,7 +17,7 @@ final class Input extends \HTML\Element {
   public function __construct(string $name = "", string $type = "", ?int $size = null, string $value = "", string $src = "") {
     parent::__construct("input");
     $type = strtolower($type);
-    if(!in_array($type, $this->allowed_types)) {
+    if(!in_array($type, $this->allowed_types, true)) {
       throw new \UnexpectedValueException("Invalid value for parametr type passed to method FormInput::__construct.");
     }
     $this->attributes["type"] = $type;
@@ -34,7 +32,7 @@ final class Input extends \HTML\Element {
   }
 
   public function setType(string $type): void {
-    if(!in_array($type, $this->allowed_types)) {
+    if(!in_array($type, $this->allowed_types, true)) {
       throw new \UnexpectedValueException("Invalid value for parametr type passed to method FormInput::setType.");
     }
     $this->attributes["type"] = strtolower($type);

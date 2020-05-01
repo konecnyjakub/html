@@ -14,7 +14,7 @@ final class Link extends \HTML\Element {
     $this->attributes["href"] = $href;
   }
 
-  public function setHref(string $url) {
+  public function setHref(string $url): void {
     $this->attributes["href"] = $url;
   }
 }

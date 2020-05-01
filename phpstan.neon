@@ -1,0 +1,8 @@
+includes:
+    - vendor/nexendrie/code-quality/phpstan.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+parameters:
+    ignoreErrors:
+        - '#Method HTML\\[a-zA-Z\\]+::[a-zA-Z]+\(\) should return HTML\\[a-zA-Z\\]+ but returns HTML\\IRenderable#'
+        - '#Declaration of HTML\\Elements\\ListElement::append\(HTML\\Elements\\ListItem \$item\): void should be compatible with HTML\\Container::append\(HTML\\BaseElement \$element\): void#'
+        - '#Parameter \#1 \$item \(HTML\\Elements\\ListItem\) of method HTML\\Elements\\ListElement::append\(\) should be contravariant with parameter \$element \(HTML\\BaseElement\) of method HTML\\Container::append\(\)#'

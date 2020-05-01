@@ -134,7 +134,7 @@ trait TContainer {
   public function addSection(string $id = "", string $type = "section"): Container {
     $allowed_types = ["section", "article", "aside", "nav", "header", "footer"];
     $type = strtolower($type);
-    if(!in_array($type, $allowed_types)) {
+    if(!in_array($type, $allowed_types, true)) {
       $type = "section";
     }
     $element = new Container($type, $id);

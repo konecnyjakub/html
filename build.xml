@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="HTML Library" basedir="." default="test">
+  <import file="vendor/nexendrie/code-quality/build.xml"/>
+  <target name="test" depends="lint,cs,phpstan,tests"/>
+  <target name="test-coverage" depends="lint,cs,phpstan,tests-coverage"/>
+  <target name="test-phpdbg" depends="lint,cs,phpstan,tests-phpdbg"/>
+</project>

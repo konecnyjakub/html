@@ -15,6 +15,9 @@
     "require": {
         "php": ">=7.4.0"
     },
+    "require-dev": {
+        "nexendrie/code-quality": "dev-master"
+    },
     "autoload": {
         "psr-4": {
             "HTML\\": "src/"

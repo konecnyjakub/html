@@ -9,8 +9,6 @@ namespace HTML\Elements;
  * @author Jakub Konečný
  */
 final class Image extends \HTML\Element {
-  protected string $content;
-
   public function __construct(string $source = "") {
     parent::__construct("img");
     $this->attributes["source"] = $source;
@@ -30,7 +28,7 @@ final class Image extends \HTML\Element {
 
   public function setAlign(string $align): void {
     $aligns = ["left", "right", "top", "middle", "baseline", "bottom", "absbottom", "absmiddle", "texttop"];
-    if(in_array($align, $aligns)) {
+    if(in_array($align, $aligns, true)) {
       $this->attributes["align"] = $align;
     }
   }

@@ -23,14 +23,14 @@ class Page {
   /**
    * Add meta info about the page
    */
-  public function addMeta(string $name, string $content) {
+  public function addMeta(string $name, string $content): void {
     $this->metas[] = ["name" => $name, "content" => $content];
   }
   
   /**
    * Add more meta infos about the page
    */
-  public function addMetas(array $metas = []) {
+  public function addMetas(array $metas = []): void {
     foreach($metas as $meta) {
       $this->addMeta($meta["name"], $meta["content"]);
     }
@@ -39,14 +39,14 @@ class Page {
   /**
    * Attach a channel to the page
    */
-  public function addChannel(string $url, string $title) {
+  public function addChannel(string $url, string $title): void {
     $this->channels[$title] = $url;
   }
   
   /**
    * Attach a style to the page
    */
-  public function attachStyle(string $style) {
+  public function attachStyle(string $style): void {
     $this->styles[] = $style;
   }
   
@@ -55,7 +55,7 @@ class Page {
    * 
    * @param string[] $styles
    */
-  public function attachStyles(array $styles = []) {
+  public function attachStyles(array $styles = []): void {
     foreach($styles as $style) {
       $this->attachStyle($style);
     }
@@ -64,7 +64,7 @@ class Page {
   /**
    * Attach a script to the page
    */
-  public function attachScript(string $script) {
+  public function attachScript(string $script): void {
     $this->scripts[] = $script;
   }
   
@@ -73,7 +73,7 @@ class Page {
    * 
    * @param string[] $scripts
    */
-  public function attachScripts(array $scripts = []) {
+  public function attachScripts(array $scripts = []): void {
     foreach($scripts as $script) {
       $this->attachScript($script);
     }
