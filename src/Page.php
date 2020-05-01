@@ -20,21 +20,21 @@ class Page {
   
   use TContainer;
 
-  function setTitle(string $title) {
+  public function setTitle(string $title) {
    $this->title = $title;
   }
   
   /**
    * Add meta info about the page
    */
-  function addMeta(string $name, string $content) {
+  public function addMeta(string $name, string $content) {
     $this->metas[] = array("name" => $name, "content" => $content);
   }
   
   /**
    * Add more meta infos about the page
    */
-  function addMetas(array $metas = array()) {
+  public function addMetas(array $metas = array()) {
     foreach($metas as $meta) {
       $this->addMeta($meta["name"], $meta["content"]);
     }
@@ -43,14 +43,14 @@ class Page {
   /**
    * Attach a channel to the page
    */
-  function addChannel(string $url, string $title) {
+  public function addChannel(string $url, string $title) {
     $this->channels["$title"] = $url;
   }
   
   /**
    * Attach a style to the page
    */
-  function attachStyle(string $style) {
+  public function attachStyle(string $style) {
     $this->styles[] = $style;
   }
   
@@ -59,7 +59,7 @@ class Page {
    * 
    * @param string[] $styles
    */
-  function attachStyles(array $styles = array()) {
+  public function attachStyles(array $styles = array()) {
     foreach($styles as $style) {
       $this->attachStyle($style);
     }
@@ -68,7 +68,7 @@ class Page {
   /**
    * Attach a script to the page
    */
-  function attachScript(string $script) {
+  public function attachScript(string $script) {
     $this->scripts[] = $script;
   }
   
@@ -77,7 +77,7 @@ class Page {
    * 
    * @param string[] $scripts
    */
-  function attachScripts(array $scripts = array()) {
+  public function attachScripts(array $scripts = array()) {
     foreach($scripts as $script) {
       $this->attachScript($script);
     }
@@ -113,7 +113,7 @@ class Page {
   /**
    * Render page
    */
-  function render(): string {
+  public function render(): string {
     $page = "<!DOCTYPE HTML>
 <html>
 <head>
@@ -138,8 +138,8 @@ class Page {
 </html>";
     return $page;
   }
-  
-  function __toString() {
+
+  public function __toString() {
     return $this->render();
   }
 }

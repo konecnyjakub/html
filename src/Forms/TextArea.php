@@ -7,7 +7,7 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 class TextArea extends \HTML\Element {
-  function __construct(string $name = "", ?int $rows = null, ?int $cols = null, string $value = "") {
+  public function __construct(string $name = "", ?int $rows = null, ?int $cols = null, string $value = "") {
     parent::__construct("textarea");
     $this->attributes["name"] = $name;
     $this->content = $value;
@@ -19,19 +19,19 @@ class TextArea extends \HTML\Element {
     }
   }
 
-  function setFieldName(string $name): void {
+  public function setFieldName(string $name): void {
     $this->attributes["name"] = $name;
   }
 
-  function setRows(int $number): void {
+  public function setRows(int $number): void {
     $this->attributes["rows"] = $number;
   }
 
-  function setCols(int $number): void {
+  public function setCols(int $number): void {
     $this->attributes["cols"] = $number;
   }
 
-  function setValue(string $value): void {
+  public function setValue(string $value): void {
     $this->content = $value;
   }
 }

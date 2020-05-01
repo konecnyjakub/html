@@ -10,6 +10,6 @@ interface IRenderable {
   /**
    * Render the element
    */
-  function render(): string;
+  public function render(): string;
 }
 ?>

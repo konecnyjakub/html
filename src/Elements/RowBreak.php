@@ -6,12 +6,12 @@ namespace HTML\Elements;
  *
  * @author Jakub Konečný
  */
-class RowBreak extends \HTML\Element{
-  function __construct() {
+class RowBreak extends \HTML\Element {
+  public function __construct() {
     parent::__construct("br");
   }
 
-  function render(): string {
+  public function render(): string {
     return "<br>";
   }
 }

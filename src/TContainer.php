@@ -14,7 +14,7 @@ trait TContainer {
   /**
    * Append an element
    */
-  function append(BaseElement $element) {
+  public function append(BaseElement $element) {
     $this->elements[] = $element;
   }
   
@@ -23,7 +23,7 @@ trait TContainer {
    * 
    * @param  IRenderable|string $content
    */
-  function inject($content) {
+  public function inject($content) {
     if(is_string($content)) {
       $this->elements[] = new HTMLCode($content);
     } elseif($content instanceof IRenderable) {
@@ -35,7 +35,7 @@ trait TContainer {
   /**
    * Remove an element
    */
-  function remove(int $node) {
+  public function remove(int $node) {
     unset($this->elements[$node]);
   }
   
@@ -44,7 +44,7 @@ trait TContainer {
    * 
    * @param TextNode|string $node
    */
-  function addText($node) {
+  public function addText($node) {
     if(is_string($node)) {
       $this->elements[] = new TextNode($node);
     } elseif($node instanceof TextNode) {
@@ -56,7 +56,7 @@ trait TContainer {
   /**
    * Add new paragraph
    */
-  function addParagraph(string $content = ""): Elements\Paragraph {
+  public function addParagraph(string $content = ""): Elements\Paragraph {
     $element = new Elements\Paragraph($content);
     $count = count($this->elements);
     $this->elements[$count] = $element;
@@ -67,7 +67,7 @@ trait TContainer {
   /**
    * Add a row break
    */
-  function addRowBreak(): Elements\RowBreak {
+  public function addRowBreak(): Elements\RowBreak {
     $element = new Elements\RowBreak();
     $count = count($this->elements);
     $this->elements[$count] = $element;
@@ -78,7 +78,7 @@ trait TContainer {
   /**
    * Add new div element
    */
-  function addDiv(string $id = ""): Elements\Div {
+  public function addDiv(string $id = ""): Elements\Div {
     $element = new Elements\Div($id);
     $count = count($this->elements);
     $this->elements[$count] = $element;
@@ -89,7 +89,7 @@ trait TContainer {
   /**
    * Add new span element
    */
-  function addSpan(string $id = ""): Elements\Span {
+  public function addSpan(string $id = ""): Elements\Span {
     $element = new Elements\Span($id);
     $count = count($this->elements);
     $this->elements[$count] = $element;
@@ -100,7 +100,7 @@ trait TContainer {
   /**
    * Add new table
    */
-  function addTable(string $colls): Table {
+  public function addTable(string $colls): Table {
     $element = new Table($colls);
     $count = count($this->elements);
     $this->elements[$count] = $element;
@@ -108,7 +108,7 @@ trait TContainer {
     return $return;
   }
 
-  function addList(string $type = "ul"): Elements\ListElement {
+  public function addList(string $type = "ul"): Elements\ListElement {
     $element = new Elements\ListElement($type);
     $count = count($this->elements);
     $this->elements[$count] = $element;
@@ -119,7 +119,7 @@ trait TContainer {
   /**
    * Add new image
    */
-  function addImage(string $source = ""):  Elements\Image{
+  public function addImage(string $source = ""):  Elements\Image{
     $element = new Elements\Image($source);
     $count = count($this->elements);
     $this->elements[$count] = $element;
@@ -130,7 +130,7 @@ trait TContainer {
   /**
    * Adds new heading
    */
-  function addHeading(int $level, string $content = ""): Elements\Heading {
+  public function addHeading(int $level, string $content = ""): Elements\Heading {
     $element = new Elements\Heading($level, $content);
     $count = count($this->elements);
     $this->elements[$count] = $element;
@@ -141,7 +141,7 @@ trait TContainer {
   /**
    * Add new link
    */
-  function addLink(string $text = "", string $href = ""): Elements\Link {
+  public function addLink(string $text = "", string $href = ""): Elements\Link {
     $element = new Elements\Link($text, $href);
     $count = count($this->elements);
     $this->elements[$count] = $element;
@@ -152,7 +152,7 @@ trait TContainer {
   /**
    * Add new section
    */
-  function addSection(string $id = "", string $type = "section"): Container {
+  public function addSection(string $id = "", string $type = "section"): Container {
     $allowed_types = array("section", "article", "aside", "nav", "header", "footer");
     $type = strtolower($type);
     if(!in_array($type, $allowed_types)) {
@@ -168,7 +168,7 @@ trait TContainer {
   /**
    * Add new form
    */
-  function addForm(string $name = "", string $action = "", string $method = "", string $target = "", string $id = ""): Forms\Form {
+  public function addForm(string $name = "", string $action = "", string $method = "", string $target = "", string $id = ""): Forms\Form {
     $element = new Forms\Form($name, $action, $method, $target, $id);
     $count = count($this->elements);
     $this->elements[$count] = $element;

@@ -10,7 +10,7 @@ abstract class Element extends BaseElement {
   /** @var string */
   protected $content;
 
-  function __construct(string $name, string $content = "") {
+  public function __construct(string $name, string $content = "") {
     $this->name = $name;
     $this->content = $content;
   }
@@ -18,25 +18,22 @@ abstract class Element extends BaseElement {
   /**
    * Add text at the end
    */
-  function addText(string $content): void {
+  public function addText(string $content): void {
     $this->content .= $content;
   }
   
   /**
    * Remove all text
    */
-  function removeText(): void {
+  public function removeText(): void {
     $this->content = "";
   }
 
-  function setContent(string $content = ""): void {
+  public function setContent(string $content = ""): void {
     $this->content = $content;
   }
-  
-  /**
-   * Render element's content
-   */
-  function renderContent(): string {
+
+  protected function renderContent(): string {
     return $this->content;
   }
 }

@@ -14,12 +14,12 @@ class Table extends Container {
   /** @var array */
   protected $rows = array();
 
-  function __construct(int $colls) {
+  public function __construct(int $colls) {
     parent::__construct("table");
     $this->colls = $colls;
   }
 
-  function setCollName(int $coll, string $name): Table {
+  public function setCollName(int $coll, string $name): Table {
     if($coll > $this->colls OR $coll <= 0) {
       exit("Invalid column.");
     }
@@ -27,7 +27,7 @@ class Table extends Container {
     return $this;
   }
 
-  function addRow(array $row): int {
+  public function addRow(array $row): int {
     if(count($row) > $this->colls) {
       exit;
     }
@@ -37,16 +37,13 @@ class Table extends Container {
     return $rowNum;
   }
 
-  function removeRow(int $row): void {
+  public function removeRow(int $row): void {
     if(isset($this->rows[$row])) {
       unset($this->rows[$row]);
     }
   }
-  
-  /**
-   * Render element's content
-   */
-  function renderContent(): string {
+
+  protected function renderContent(): string {
     $return = "<tr>";
     foreach($this->collsNames as $name) {
       $return .= "<th>$name</th>";

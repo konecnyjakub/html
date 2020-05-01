@@ -7,7 +7,7 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 class SelectBox extends \HTML\Container {
-  function __construct(string $name = "", ?int $size = null) {
+  public function __construct(string $name = "", ?int $size = null) {
     parent::__construct("select");
     $this->attributes["name"] = $name;
     if($size !== null) {
@@ -15,15 +15,15 @@ class SelectBox extends \HTML\Container {
     }
   }
 
-  function setFieldName(string $name): void {
+  public function setFieldName(string $name): void {
     $this->attributes["name"] = $name;
   }
 
-  function setSize(int $size): void {
+  public function setSize(int $size): void {
     $this->attributes["size"] = $size;
   }
 
-  function addOption(string $value = "", string $text = ""): SelectBoxOption {
+  public function addOption(string $value = "", string $text = ""): SelectBoxOption {
     $element = new SelectBoxOption($value, $text);
     $count = count($this->elements);
     $this->elements[$count] = $element;

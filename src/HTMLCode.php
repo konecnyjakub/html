@@ -10,18 +10,18 @@ class HTMLCode implements IRenderable {
   /** @var string */
   protected $content;
 
-  function __construct(string $content = "") {
+  public function __construct(string $content = "") {
     $this->content = $content;
   }
   
   /**
    * Change the content
    */
-  function setContent(string $content = ""): void {
+  public function setContent(string $content = ""): void {
     $this->content = $content;
   }
 
-  function render(): string {
+  public function render(): string {
     return $this->content . "\n";
   }
 }

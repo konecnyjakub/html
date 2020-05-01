@@ -10,28 +10,28 @@ class TextNode implements IRenderable {
   /** @var string */
   protected $content;
 
-  function __construct(string $content = "") {
+  public function __construct(string $content = "") {
     $this->content = $content;
   }
-  
+
   /**
    * Add text at the end
    */
-  function addText(string $content): void {
+  public function addText(string $content): void {
     $this->content .= $content;
   }
-  
+
   /**
    * Remove all text
    */
-  function removeText(): void {
+  public function removeText(): void {
     $this->content = "";
   }
-  
+
   /**
    * Replace text
    */
-  function setContent(string $content = ""): void {
+  public function setContent(string $content = ""): void {
     $this->content = $content;
   }
 
