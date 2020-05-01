@@ -15,9 +15,5 @@ final class SelectBoxOption extends \HTML\Element {
   public function setValue(string $value): void {
     $this->attributes["value"] = $value;
   }
-
-  public function setText(string $text): void {
-    $this->content = $text;
-  }
 }
 ?>

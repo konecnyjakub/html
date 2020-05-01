@@ -7,7 +7,7 @@ namespace HTML;
  * @author Jakub Konečný
  */
 class Table extends Container {
-  protected int $colls;
+  public int $colls;
   protected array $collsNames = [];
   protected array $rows = [];
 

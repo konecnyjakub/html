@@ -29,9 +29,5 @@ final class TextArea extends \HTML\Element {
   public function setCols(int $number): void {
     $this->attributes["cols"] = $number;
   }
-
-  public function setValue(string $value): void {
-    $this->content = $value;
-  }
 }
 ?>

@@ -7,16 +7,9 @@ namespace HTML;
  * @author Jakub Konečný
  */
 final class HTMLCode implements IRenderable {
-  protected string $content;
+  public string $content;
 
   public function __construct(string $content = "") {
-    $this->content = $content;
-  }
-  
-  /**
-   * Change the content
-   */
-  public function setContent(string $content = ""): void {
     $this->content = $content;
   }
 

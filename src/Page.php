@@ -7,7 +7,7 @@ namespace HTML;
  * @author Jakub Konečný
  */
 class Page {
-  protected string $title;
+  public string $title;
   /** @var string[] */
   protected array $scripts = [];
   protected array $metas = [];
@@ -17,10 +17,6 @@ class Page {
   protected array $channels = [];
   
   use TContainer;
-
-  public function setTitle(string $title) {
-   $this->title = $title;
-  }
   
   /**
    * Add meta info about the page
