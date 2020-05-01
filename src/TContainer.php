@@ -14,43 +14,29 @@ trait TContainer {
   /**
    * Append an element
    */
-  public function append(BaseElement $element) {
+  public function append(BaseElement $element): void {
     $this->elements[] = $element;
   }
   
   /**
    * Insert text/html code
-   * 
-   * @param  IRenderable|string $content
    */
-  public function inject($content) {
-    if(is_string($content)) {
-      $this->elements[] = new HTMLCode($content);
-    } elseif($content instanceof IRenderable) {
-      $this->elements[] = $content;
-    }
-    throw new \InvalidArgumentException("Invalid value for parametr content passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected IRenderable or string.");
+  public function inject(string $content): void {
+    $this->elements[] = new HTMLCode($content);
   }
   
   /**
    * Remove an element
    */
-  public function remove(int $node) {
+  public function remove(int $node): void {
     unset($this->elements[$node]);
   }
   
   /**
    * Add new text node
-   * 
-   * @param TextNode|string $node
    */
-  public function addText($node) {
-    if(is_string($node)) {
-      $this->elements[] = new TextNode($node);
-    } elseif($node instanceof TextNode) {
-      $this->elements[] = $node;
-    }
-    throw new \InvalidArgumentException("Invalid value for parametr node passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected string or TextNode.");
+  public function addText(string $text): void {
+    $this->elements[] = new TextNode($text);
   }
   
   /**
