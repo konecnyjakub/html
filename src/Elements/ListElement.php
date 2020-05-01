@@ -15,12 +15,12 @@ final class ListElement extends \HTML\Container {
   public function __construct(string $type = "ul") {
     switch($type) {
       case "ul":
-        case "ol":
-          parent::__construct($type);
-          break;
-          default:
-            parent::__construct("ul");
-            break;
+      case "ol":
+        parent::__construct($type);
+        break;
+      default:
+        parent::__construct("ul");
+        break;
     }
   }
   

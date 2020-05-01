@@ -101,13 +101,13 @@ trait TContainer {
   /**
    * Add new image
    */
-  public function addImage(string $source = ""):  Elements\Image{
+  public function addImage(string $source = ""): Elements\Image {
     $element = new Elements\Image($source);
     $count = count($this->elements);
     $this->elements[$count] = $element;
     return $this->elements[$count];
-  } 
-  
+  }
+
   /**
    * Adds new heading
    */

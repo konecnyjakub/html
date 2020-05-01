@@ -92,15 +92,15 @@ class Page {
       }
       switch($meta["name"]) {
         case "content-type":
-          case "content-language":
-            case "refresh":
-              case "cache-control":
-                $attribute = "http-equiv";
-                break;
-                default:
-                  $attribute = "name";
-                  break;
-}
+        case "content-language":
+        case "refresh":
+        case "cache-control":
+          $attribute = "http-equiv";
+          break;
+        default:
+          $attribute = "name";
+          break;
+      }
       $output .= "  <meta $attribute=\"{$meta["name"]}\" content=\"{$meta["content"]}\">\n";
     }
     return $output;
@@ -116,7 +116,7 @@ class Page {
   <title>$this->title</title>\n";
     $page .= $this->renderMetas();
     foreach($this->styles as $style) {
-      $page .= "  <link rel=\"stylesheet\" type=\"text/css\" href=\""."$style"."\">\n";
+      $page .= "  <link rel=\"stylesheet\" type=\"text/css\" href=\"$style\">\n";
     }
     foreach($this->scripts as $script) {
       $page .= "  <script src=\"$script\"></script>\n";

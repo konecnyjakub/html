@@ -15,7 +15,7 @@ final class TextNode implements IRenderable {
     $this->content = $content;
   }
 
-  function render(): string {
+  public function render(): string {
     return $this->content . "\n";
   }
 }

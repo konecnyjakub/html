@@ -28,7 +28,9 @@ final class Input extends \HTML\Element {
       $this->attributes["size"] = $size;
     }
     $this->attributes["value"] = $value;
-    if($type == "image") $this->attributes["src"] = $src;
+    if($type == "image") {
+      $this->attributes["src"] = $src;
+    }
   }
 
   public function setType(string $type): void {
