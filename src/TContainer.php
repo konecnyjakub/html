@@ -29,7 +29,7 @@ trait TContainer {
     } elseif($content instanceof IRenderable) {
       $this->elements[] = $content;
     }
-    throw new InvalidValueException("Invalid value for parametr content passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected IRenderable or string.");
+    throw new \InvalidArgumentException("Invalid value for parametr content passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected IRenderable or string.");
   }
   
   /**
@@ -50,7 +50,7 @@ trait TContainer {
     } elseif($node instanceof TextNode) {
       $this->elements[] = $node;
     }
-    throw new InvalidValueException("Invalid value for parametr node passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected string or TextNode.");
+    throw new \InvalidArgumentException("Invalid value for parametr node passed to method " . __CLASS__ . "::" . __METHOD__ . ". Expected string or TextNode.");
   }
   
   /**
