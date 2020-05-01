@@ -16,7 +16,7 @@ final class Input extends \HTML\Element {
     parent::__construct("input");
     $type = strtolower($type);
     if(!in_array($type, $this->allowed_types)) {
-      throw new \InvalidArgumentException("Invalid value for parametr type passed to method FormInput::__construct.");
+      throw new \UnexpectedValueException("Invalid value for parametr type passed to method FormInput::__construct.");
     }
     $this->attributes["type"] = $type;
     $this->attributes["name"] = $name;
