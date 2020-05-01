@@ -8,9 +8,8 @@ namespace HTML\Forms;
  */
 final class TextArea extends \HTML\Element {
   public function __construct(string $name = "", ?int $rows = null, ?int $cols = null, string $value = "") {
-    parent::__construct("textarea");
+    parent::__construct("textarea", $value);
     $this->attributes["name"] = $name;
-    $this->content = $value;
     if($rows !== null) {
       $this->attributes["rows"] = $rows;
     }
