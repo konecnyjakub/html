@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace HTML\Forms;
 
 /**
@@ -36,7 +38,7 @@ class Form extends \HTML\Container {
     }
   }
 
-  public function addInput(string $name = "", string $type = "", string $size = "", string $value = "", string $src = ""): Input {
+  public function addInput(string $name = "", string $type = "", ?int $size = null, string $value = "", string $src = ""): Input {
     $element = new Input($name, $type, $size, $value, $src);
     $count = count($this->elements);
     $this->elements[$count] = $element;

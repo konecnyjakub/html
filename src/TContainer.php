@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace HTML;
 
 /**
@@ -82,7 +84,7 @@ trait TContainer {
   /**
    * Add new table
    */
-  public function addTable(string $colls): Table {
+  public function addTable(int $colls): Table {
     $element = new Table($colls);
     $count = count($this->elements);
     $this->elements[$count] = $element;
