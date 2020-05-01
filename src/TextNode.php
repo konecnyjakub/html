@@ -9,49 +9,33 @@ namespace HTML;
 class TextNode implements IRenderable {
   /** @var string */
   protected $content;
-  
-  /**
-   * @param string $content
-   */
-  function __construct($content = "") {
-    $this->content = (string) $content;
+
+  function __construct(string $content = "") {
+    $this->content = $content;
   }
   
   /**
    * Add text at the end
-   * 
-   * @param string $content
-   * @return void
    */
-  function addText($content) {
-    $this->content .= (string) $content;
+  function addText(string $content): void {
+    $this->content .= $content;
   }
   
   /**
    * Remove all text
-   * 
-   * @return void
    */
-  function removeText() {
+  function removeText(): void {
     $this->content = "";
   }
   
   /**
    * Replace text
-   * 
-   * @param string $content
-   * @return void
    */
-  function setContent($content = "") {
-    $this->content = (string) $content;
+  function setContent(string $content = ""): void {
+    $this->content = $content;
   }
-  
-  /**
-   * Render the element
-   * 
-   * @return string
-   */
-  function render() {
+
+  function render(): string {
     return $this->content . "\n";
   }
 }

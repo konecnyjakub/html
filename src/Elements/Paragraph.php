@@ -7,10 +7,7 @@ namespace HTML\Elements;
  * @author Jakub Konečný
  */
 class Paragraph extends \HTML\Container {
-  /**
-   * @param string $id
-   */
-  function __construct($id = "") {
+  function __construct(string $id = "") {
     parent::__construct("p", $id);
   }
 }

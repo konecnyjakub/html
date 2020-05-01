@@ -9,9 +9,7 @@ namespace HTML;
 interface IRenderable {
   /**
    * Render the element
-   * 
-   * @return string
    */
-  function render();
+  function render(): string;
 }
 ?>

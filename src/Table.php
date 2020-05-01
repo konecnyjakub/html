@@ -13,59 +13,34 @@ class Table extends Container {
   protected $collsNames = array();
   /** @var array */
   protected $rows = array();
-  
-  /**
-   * @param int $colls
-   */
-  function __construct($colls) {
+
+  function __construct(int $colls) {
     parent::__construct("table");
-    if(is_int($colls)) $this->colls = $colls;
-    else throw new InvalidValueException("Invalid value for parametr colls passed to method Table::__construct. Expected integer.");
+    $this->colls = $colls;
   }
-  
-  /**
-   * @param int $coll
-   * @param string $name
-   * @return Table
-   * @throws InvalidValueException
-   */
-  function setCollName($coll, $name) {
+
+  function setCollName(int $coll, string $name): Table {
     if($coll > $this->colls OR $coll <= 0) exit("Invalid column.");
-    if(!is_string($name)) throw new InvalidValueException("Invalid value for parametr name passed to method Table::setCollName. Expected string.");
     $this->collsNames[$coll] = $name;
     return $this;
   }
-  
-  /**
-   * Add new row
-   * 
-   * @param array $row
-   * @return int Row's index
-   */
-  function addRow(array $row) {
+
+  function addRow(array $row): int {
     if(count($row) > $this->colls) exit;
     $count = count($this->rows);
     $this->rows[$count] = $row;
     $rowNum = &$this->rows[$count];
     return $rowNum;
   }
-  
-  /**
-   * Remove a row
-   * 
-   * @param int $row Row's index
-   * @return void
-   */
-  function removeRow($row) {
+
+  function removeRow(int $row): void {
     if(isset($this->rows[$row])) unset($this->rows[$row]);
   }
   
   /**
    * Render element's content
-   * 
-   * @return string
    */
-  function renderContent() {
+  function renderContent(): string {
     $return = "<tr>";
     foreach($this->collsNames as $name) {
       $return .= "<th>$name</th>";

@@ -11,27 +11,19 @@ abstract class BaseElement implements IRenderable {
   protected $name;
   /** @var string[] */
   protected $attributes;
-  
-  /**
-   * @param string $id
-   */
-  function setId($id) {
-    $this->attributes["id"] = (string) $id;
+
+  function setId(string $id): void {
+    $this->attributes["id"] = $id;
   }
-  
-  /**
-   * @param string $class
-   */
-  function setClass($class) {
-    $this->attributes["class"] = (string) $class;
+
+  function setClass(string $class): void {
+    $this->attributes["class"] = $class;
   }
   
   /**
    * Render opening tag
-   * 
-   * @return string
    */
-  function renderOpening() {
+  function renderOpening(): string {
     $return = "<$this->name";
     foreach($this->attributes as $key => $value) {
       if(strlen($value) > 0) $return .= " $key=\"$value\"";
@@ -42,26 +34,20 @@ abstract class BaseElement implements IRenderable {
   
   /**
    * Render closing tag
-   * 
-   * @return string
    */
-  function renderClosing() {
+  function renderClosing(): string {
     return "</$this->name>\n";
   }
   
   /**
    * Render element's content
-   * 
-   * @return string
    */
-  abstract function renderContent();
+  abstract function renderContent(): string;
   
   /**
    * Render the element
-   * 
-   * @return string
    */
-  function render() {
+  function render(): string {
     return $this->renderOpening() . $this->renderContent() . $this->renderClosing();
   }
 }

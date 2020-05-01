@@ -7,20 +7,13 @@ namespace HTML\Elements;
  * @author Jakub Konečný
  */
 class Link extends \HTML\Element {
-  /**
-   * @param string $text
-   * @param string $href
-   */
-  function __construct($text = "", $href = "") {
+  function __construct(string $text = "", string $href = "") {
     parent::__construct("a", $text);
-    $this->attributes["href"] = (string) $href;
+    $this->attributes["href"] = $href;
   }
-  
-  /**
-   * @param string $url
-   */
-  function setHref($url) {
-    $this->attributes["href"] = (string) $url;
+
+  function setHref(string $url) {
+    $this->attributes["href"] = $url;
   }
 }
 ?>

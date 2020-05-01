@@ -7,10 +7,7 @@ namespace HTML\Elements;
  * @author Jakub Konečný
  */
 class ListItem extends \HTML\Element {
-  /**
-   * @param string $text
-   */
-  function __construct($text) {
+  function __construct(string $text) {
     parent::__construct("li", $text);
   }
 }

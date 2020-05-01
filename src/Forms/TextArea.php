@@ -7,46 +7,32 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 class TextArea extends \HTML\Element {
-  /**
-   * @param string $name
-   * @param int $rows
-   * @param int $cols
-   * @param string $value
-   */
-  function __construct($name = "", $rows = "", $cols = "", $value = "") {
+  function __construct(string $name = "", ?int $rows = null, ?int $cols = null, string $value = "") {
     parent::__construct("textarea");
-    $this->attributes["name"] = (string) $name;
-    $this->content = (string) $value;
-    $this->attributes["rows"] = (int) $rows;
-    $this->attributes["cols"] = (int) $cols;
+    $this->attributes["name"] = $name;
+    $this->content = $value;
+    if($rows !== null) {
+      $this->attributes["rows"] = $rows;
+    }
+    if($cols !== null) {
+      $this->attributes["cols"] = $cols;
+    }
   }
-  
-  /**
-   * @param string $name
-   */
-  function setFieldName($name) {
-    $this->attributes["name"] = (string) $name;
+
+  function setFieldName(string $name): void {
+    $this->attributes["name"] = $name;
   }
-  
-  /**
-   * @param int $number
-   */
-  function setRows($number) {
-    $this->attributes["rows"] = (int) $number;
+
+  function setRows(int $number): void {
+    $this->attributes["rows"] = $number;
   }
-  
-  /**
-   * @param int $number
-   */
-  function setCols($number) {
-    $this->attributes["cols"] = (int) $number;
+
+  function setCols(int $number): void {
+    $this->attributes["cols"] = $number;
   }
-  
-  /**
-   * @param string $value
-   */
-  function setValue($value) {
-    $this->content = (string) $value;
+
+  function setValue(string $value): void {
+    $this->content = $value;
   }
 }
 ?>

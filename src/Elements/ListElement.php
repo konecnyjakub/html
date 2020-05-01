@@ -10,7 +10,7 @@ class ListElement extends \HTML\Container {
   /**
    * @param string $type Type of the list
    */
-  function __construct($type = "ul") {
+  function __construct(string $type = "ul") {
 switch($type) {
 case "ul":
 case "ol":
@@ -24,22 +24,16 @@ default:
   
   /**
    * Add an item
-   * 
-   * @param string $text
-   * @return void
    */
-  function addItem($text) {
+  function addItem(string $text): void {
     $count = count($this->elements);
     $this->elements[$count] = new ListItem($text);
   }
   
   /**
    * Append an item
-   * 
-   * @param ListItem $item
-   * @return void
    */
-  function append(ListItem $item) {
+  function append(ListItem $item): void {
     $count = count($this->elements);
     $this->elements[$count] = $item;
   }
@@ -48,9 +42,8 @@ default:
    * Remove an item
    * 
    * @param int $node Item's index
-   * @return void
    */
-  function remove($node) {
+  function remove(int $node): void {
     unset($this->elements[$node]);
   }
 }

@@ -7,83 +7,48 @@ namespace HTML\Forms;
  * @author Jakub Konečný
  */
 class Form extends \HTML\Container {
-  function __construct($name = "", $action = "", $method = "", $target = "", $id = "") {
+  function __construct(string $name = "", string $action = "", string $method = "", string $target = "", string $id = "") {
     parent::__construct("form", $id);
-    $this->attributes["name"] = (string) $name;
-    $this->attributes["action"] = (string) $action;
+    $this->attributes["name"] = $name;
+    $this->attributes["action"] = $action;
     if($method == "get" OR $method == "post") $this->attributes["method"] = $method;
-    $this->attributes["target"] = (string) $target;
+    $this->attributes["target"] = $target;
   }
-  
-  /**
-   * @param string $name
-   */
-  function setFormName($name) {
-    $this->attributes["name"] = (string) $name;
+
+  function setFormName(string $name): void {
+    $this->attributes["name"] = $name;
   }
-  
-  /**
-   * @param string $url
-   */
-  function setAction($url) {
-    $this->attributes["action"] = (string) $url;
+
+  function setAction(string $url): void {
+    $this->attributes["action"] = $url;
   }
-  
-  /**
-   * @param string $frame
-   */
-  function setTarget($frame) {
-    $this->attributes["target"] = (string) $frame;
+
+  function setTarget(string $frame): void {
+    $this->attributes["target"] = $frame;
   }
-  
-  /**
-   * @param string $method
-   */
-  function setMethod($method) {
+
+  function setMethod(string $method): void {
     $method = strtolower($method);
     if($method == "get" OR $method == "post") $this->attributes["method"] = $method;
   }
-  
-  /**
-   * 
-   * @param string $name
-   * @param string $type
-   * @param string $size
-   * @param string $value
-   * @param string $src
-   * @return Input
-   */
-  function addInput($name = "", $type = "", $size = "", $value = "", $src = "") {
+
+  function addInput(string $name = "", string $type = "", string $size = "", string $value = "", string $src = ""): Input {
     $element = new Input($name, $type, $size, $value, $src);
     $count = count($this->elements);
     $this->elements[$count] = $element;
     $return = & $this->elements[$count];
     return $return;
   }
-  
-  /**
-   * 
-   * @param string $name
-   * @param string $rows
-   * @param string $cols
-   * @param string $value
-   * @return TextArea
-   */
-  function addTextArea($name = "", $rows = "", $cols = "", $value = "") {
+
+  function addTextArea(string $name = "", ?int $rows = null, int $cols = null, string $value = ""): TextArea {
     $element = new TextArea($name, $rows, $cols, $value);
     $count = count($this->elements);
     $this->elements[$count] = $element;
     $return = & $this->elements[$count];
     return $return;
   }
-  
-  /**
-   * 
-   * @param string $name
-   * @param int $size
-   * @return SelectBox
-   */
-  function addSelectBox($name = "", $size = "") {
+
+  function addSelectBox(string $name = "", ?int $size = null): SelectBox {
     $element = new SelectBox($name, $size);
     $count = count($this->elements);
     $this->elements[$count] = $element;

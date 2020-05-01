@@ -7,33 +7,19 @@ namespace HTML;
  * @author Jakub Konečný
  */
 class Container extends BaseElement {
-  
-  /**
-   * @param string $name
-   * @param string $id
-   */
-  function __construct($name, $id = "") {
-    $this->name = (string) $name;
-    $this->attributes["id"] = $this->id = (string) $id;
+
+  function __construct(string $name, string $id = "") {
+    $this->name = $name;
+    $this->attributes["id"] = $this->id = $id;
   }
   
   use TContainer;
-  
-  /**
-   * Render opening tag
-   * 
-   * @return string
-   */
-  function renderOpening() {
+
+  function renderOpening(): string {
     return parent::renderOpening() . "\n";
   }
-  
-  /**
-   * Render the container
-   * 
-   * @return string
-   */
-  function renderContent() {
+
+  function renderContent(): string {
     $return = "";
     foreach($this->elements as $part) {
       $return .= $part->render();

@@ -9,30 +9,19 @@ namespace HTML;
 class HTMLCode implements IRenderable {
   /** @var string */
   protected $content;
-  
-  /**
-   * @param string $content
-   */
-  function __construct($content = "") {
-    $this->content = (string) $content;
+
+  function __construct(string $content = "") {
+    $this->content = $content;
   }
   
   /**
    * Change the content
-   * 
-   * @param string $content
-   * @return void
    */
-  function setContent($content = "") {
-    $this->content = (string) $content;
+  function setContent(string $content = ""): void {
+    $this->content = $content;
   }
-  
-  /**
-   * Render the element
-   * 
-   * @return string
-   */
-  function render() {
+
+  function render(): string {
     return $this->content . "\n";
   }
 }

@@ -9,48 +9,34 @@ namespace HTML;
 abstract class Element extends BaseElement {
   /** @var string */
   protected $content;
-  
-  /**
-   * @param string $name
-   * @param string $content
-   */
-  function __construct($name, $content = "") {
-    $this->name = (string) $name;
-    $this->content = (string) $content;
+
+  function __construct(string $name, string $content = "") {
+    $this->name = $name;
+    $this->content = $content;
   }
   
   /**
    * Add text at the end
-   * 
-   * @param string $content
-   * @return void
    */
-  function addText($content) {
-    $this->content .= (string) $content;
+  function addText(string $content): void {
+    $this->content .= $content;
   }
   
   /**
    * Remove all text
-   * 
-   * @return void
    */
-  function removeText() {
+  function removeText(): void {
     $this->content = "";
   }
-  
-  /**
-   * @param string $content
-   */
-  function setContent($content = "") {
-    $this->content = (string) $content;
+
+  function setContent(string $content = ""): void {
+    $this->content = $content;
   }
   
   /**
    * Render element's content
-   * 
-   * @return string
    */
-  function renderContent() {
+  function renderContent(): string {
     return $this->content;
   }
 }

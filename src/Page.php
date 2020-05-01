@@ -19,28 +19,20 @@ class Page {
   protected $channels = array();
   
   use TContainer;
-  
-  /**
-   * @param string $title
-   */
-  function setTitle($title) {
-   $this->title = (string) $title;
+
+  function setTitle(string $title) {
+   $this->title = $title;
   }
   
   /**
    * Add meta info about the page
-   * 
-   * @param string $name
-   * @param string $content
    */
-  function addMeta($name, $content) {
-    $this->metas[] = array("name" => (string) $name, "content" => (string) $content);
+  function addMeta(string $name, string $content) {
+    $this->metas[] = array("name" => $name, "content" => $content);
   }
   
   /**
    * Add more meta infos about the page
-   * 
-   * @param array $metas
    */
   function addMetas(array $metas = array()) {
     foreach($metas as $meta) {
@@ -50,27 +42,22 @@ class Page {
   
   /**
    * Attach a channel to the page
-   * 
-   * @param string $url
-   * @param string $title
    */
-  function addChannel($url, $title) {
+  function addChannel(string $url, string $title) {
     $this->channels["$title"] = $url;
   }
   
   /**
    * Attach a style to the page
-   * 
-   * @param string $style
    */
-  function attachStyle($style) {
-    $this->styles[] = (string) $style;
+  function attachStyle(string $style) {
+    $this->styles[] = $style;
   }
   
   /**
    * Attach styles to the page
    * 
-   * @param array $styles
+   * @param string[] $styles
    */
   function attachStyles(array $styles = array()) {
     foreach($styles as $style) {
@@ -80,20 +67,17 @@ class Page {
   
   /**
    * Attach a script to the page
-   * 
-   * @param string $script
    */
-  function attachScript($script) {
-    $this->scripts[] = (string) $script;
+  function attachScript(string $script) {
+    $this->scripts[] = $script;
   }
   
   /**
    * Attach scripts to the page
    * 
-   * @param array $scripts
+   * @param string[] $scripts
    */
   function attachScripts(array $scripts = array()) {
-    if(!is_array($scripts)) throw new InvalidValueException("Invalid value for parametr scripts passed to method Page::attachScripts. Expected array.");
     foreach($scripts as $script) {
       $this->attachScript($script);
     }
@@ -101,10 +85,8 @@ class Page {
   
   /**
    * Render meta tags
-   * 
-   * @return string
    */
-  protected function renderMetas() {
+  protected function renderMetas(): string {
     $output = "";
     foreach($this->metas as $meta) {
       $meta["name"] = strtolower($meta["name"]);
@@ -130,10 +112,8 @@ default:
   
   /**
    * Render page
-   * 
-   * @return string
    */
-  function render() {
+  function render(): string {
     $page = "<!DOCTYPE HTML>
 <html>
 <head>

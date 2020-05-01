@@ -7,49 +7,29 @@ namespace HTML\Elements;
  * @author Jakub Konečný
  */
 class Image extends \HTML\Element {
-  /**
-   * @param string $source
-   */
-  function __construct($source = "") {
+  function __construct(string $source = "") {
     parent::__construct("img");
-    $this->attributes["source"] = (string) $source;
+    $this->attributes["source"] = $source;
   }
-  
-  /**
-   * @param string $source
-   */
-  function setSource($source) {
-    $this->attributes["source"] = (string) $source;
+
+  function setSource(string $source): void {
+    $this->attributes["source"] = $source;
   }
-  
-  /**
-   * @param string $title
-   */
-  function setTitle($title) {
-    $this->attributes["title"] = (string) $title;
+
+  function setTitle(string $title): void {
+    $this->attributes["title"] = $title;
   }
-  
-  /**
-   * @param string $alt
-   */
-  function setAlt($alt) {
-    $this->attributes["alt"] = (string) $alt;
+
+  function setAlt(string $alt): void {
+    $this->attributes["alt"] = $alt;
   }
-  
-  /**
-   * @param string $align
-   */
-  function setAlign($align) {
+
+  function setAlign(string $align): void {
     $aligns = array("left", "right", "top", "middle", "baseline", "bottom", "absbottom", "absmiddle", "texttop");
     if(in_array($align, $aligns)) $this->attributes["align"] = $align;
   }
-  
-  /**
-   * Render closing tag
-   * 
-   * @return string
-   */
-  function renderClosing() {
+
+  function renderClosing(): string {
     return "\n";
   }
 }
