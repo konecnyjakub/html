@@ -9,12 +9,12 @@ namespace HTML;
 class Page {
   protected string $title;
   /** @var string[] */
-  protected array $scripts = array();
-  protected array $metas = array();
+  protected array $scripts = [];
+  protected array $metas = [];
   /** @var string[] */
-  protected array $styles = array();
+  protected array $styles = [];
   /** @var string[] */
-  protected array $channels = array();
+  protected array $channels = [];
   
   use TContainer;
 
@@ -26,13 +26,13 @@ class Page {
    * Add meta info about the page
    */
   public function addMeta(string $name, string $content) {
-    $this->metas[] = array("name" => $name, "content" => $content);
+    $this->metas[] = ["name" => $name, "content" => $content];
   }
   
   /**
    * Add more meta infos about the page
    */
-  public function addMetas(array $metas = array()) {
+  public function addMetas(array $metas = []) {
     foreach($metas as $meta) {
       $this->addMeta($meta["name"], $meta["content"]);
     }
@@ -57,7 +57,7 @@ class Page {
    * 
    * @param string[] $styles
    */
-  public function attachStyles(array $styles = array()) {
+  public function attachStyles(array $styles = []) {
     foreach($styles as $style) {
       $this->attachStyle($style);
     }
@@ -75,7 +75,7 @@ class Page {
    * 
    * @param string[] $scripts
    */
-  public function attachScripts(array $scripts = array()) {
+  public function attachScripts(array $scripts = []) {
     foreach($scripts as $script) {
       $this->attachScript($script);
     }

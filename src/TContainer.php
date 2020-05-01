@@ -9,7 +9,7 @@ namespace HTML;
  */
 trait TContainer {
   /** @var IRenderable[] */
-  protected array $elements = array();
+  protected array $elements = [];
   
   /**
    * Append an element
@@ -153,7 +153,7 @@ trait TContainer {
    * Add new section
    */
   public function addSection(string $id = "", string $type = "section"): Container {
-    $allowed_types = array("section", "article", "aside", "nav", "header", "footer");
+    $allowed_types = ["section", "article", "aside", "nav", "header", "footer"];
     $type = strtolower($type);
     if(!in_array($type, $allowed_types)) {
       $type = "section";

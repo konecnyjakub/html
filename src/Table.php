@@ -8,8 +8,8 @@ namespace HTML;
  */
 class Table extends Container {
   protected int $colls;
-  protected array $collsNames = array();
-  protected array $rows = array();
+  protected array $collsNames = [];
+  protected array $rows = [];
 
   public function __construct(int $colls) {
     parent::__construct("table");

@@ -8,9 +8,9 @@ namespace HTML\Forms;
  */
 class Input extends \HTML\Element {
   /** @var string[] */
-  protected $allowed_types = array("text", "password", "checkbox", "radio", "hidden", "submit", "reset", "image", "file",
+  protected array $allowed_types = ["text", "password", "checkbox", "radio", "hidden", "submit", "reset", "image", "file",
     "search", "tel", "url", "email", "number", "range", "color",
-    "date", "month", "week", "time", "datetime", "datetime-local");
+    "date", "month", "week", "time", "datetime", "datetime-local"];
 
   public function __construct(string $name = "", string $type = "", ?int $size = null, string $value = "", string $src = "") {
     parent::__construct("input");
