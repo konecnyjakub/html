@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace HTML\Elements;
 
+use HTML\BaseElement;
+
 /**
  * ListElement
  *
@@ -30,8 +32,13 @@ final class ListElement extends \HTML\Container {
   
   /**
    * Append an item
+   *
+   * @param ListItem $item
    */
-  public function append(ListItem $item): void {
+  public function append(BaseElement $item): void {
+    if(!$item instanceof ListItem) {
+      throw new \TypeError("Argument 1 passed to " . __METHOD__ . "() must be an instance of " . ListItem::class . ", " . get_class($item) . " given");
+    }
     $count = count($this->elements);
     $this->elements[$count] = $item;
   }
