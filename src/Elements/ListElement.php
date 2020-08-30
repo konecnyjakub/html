@@ -26,8 +26,8 @@ final class ListElement extends \HTML\Container {
    */
   public function addItem(string $text): ListItem {
     $count = count($this->elements);
-    $this->elements[$count] = new ListItem($text);
-    return $this->elements[$count];
+    $this->elements[$count] = $item = new ListItem($text);
+    return $item;
   }
   
   /**

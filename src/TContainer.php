@@ -47,8 +47,8 @@ trait TContainer {
   public function addParagraph(string $content = ""): Elements\Paragraph {
     $element = new Elements\Paragraph($content);
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
   
   /**
@@ -57,8 +57,8 @@ trait TContainer {
   public function addRowBreak(): Elements\RowBreak {
     $element = new Elements\RowBreak();
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
 
   /**
@@ -67,8 +67,8 @@ trait TContainer {
   public function addDiv(string $id = ""): Elements\Div {
     $element = new Elements\Div($id);
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
   
   /**
@@ -77,8 +77,8 @@ trait TContainer {
   public function addSpan(string $id = ""): Elements\Span {
     $element = new Elements\Span($id);
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
   
   /**
@@ -87,15 +87,15 @@ trait TContainer {
   public function addTable(int $colls): Table {
     $element = new Table($colls);
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
 
   public function addList(string $type = "ul"): Elements\ListElement {
     $element = new Elements\ListElement($type);
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
   
   /**
@@ -104,8 +104,8 @@ trait TContainer {
   public function addImage(string $source = ""): Elements\Image {
     $element = new Elements\Image($source);
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
 
   /**
@@ -114,8 +114,8 @@ trait TContainer {
   public function addHeading(int $level, string $content = ""): Elements\Heading {
     $element = new Elements\Heading($level, $content);
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
   
   /**
@@ -124,8 +124,8 @@ trait TContainer {
   public function addLink(string $text = "", string $href = ""): Elements\Link {
     $element = new Elements\Link($text, $href);
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
   
   /**
@@ -139,8 +139,8 @@ trait TContainer {
     }
     $element = new Container($type, $id);
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
   
   /**
@@ -149,8 +149,8 @@ trait TContainer {
   public function addForm(string $name = "", string $action = "", string $method = "", string $target = "", string $id = ""): Forms\Form {
     $element = new Forms\Form($name, $action, $method, $target, $id);
     $count = count($this->elements);
-    $this->elements[$count] = $element;
-    return $this->elements[$count];
+    $this->elements[$count] = $item = $element;
+    return $item;
   }
 }
 ?>
