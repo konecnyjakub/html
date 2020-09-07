@@ -30,9 +30,10 @@ class Table extends Container {
     if(count($row) > $this->colls) {
       throw new \RuntimeException("The row contains too many columns.");
     }
-    $count = count($this->rows);
-    $this->rows[$count] = $row;
-    return $this->rows[$count];
+    $this->rows[] = $row;
+    /** @var int $index */
+    $index = array_key_last($this->rows);
+    return $index;
   }
 
   public function removeRow(int $row): void {
