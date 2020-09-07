@@ -39,21 +39,18 @@ class Form extends \HTML\Container {
   }
 
   public function addInput(string $name = "", string $type = "", ?int $size = null, string $value = "", string $src = ""): Input {
-    $element = new Input($name, $type, $size, $value, $src);
-    $this->elements[] = $item = $element;
-    return $item;
+    $this->elements[] = $element = new Input($name, $type, $size, $value, $src);
+    return $element;
   }
 
   public function addTextArea(string $name = "", ?int $rows = null, int $cols = null, string $value = ""): TextArea {
-    $element = new TextArea($name, $rows, $cols, $value);
-    $this->elements[] = $item = $element;
-    return $item;
+    $this->elements[] = $element = new TextArea($name, $rows, $cols, $value);
+    return $element;
   }
 
   public function addSelectBox(string $name = "", ?int $size = null): SelectBox {
-    $element = new SelectBox($name, $size);
-    $this->elements[] = $item = $element;
-    return $item;
+    $this->elements[] = $element = new SelectBox($name, $size);
+    return $element;
   }
 }
 ?>
