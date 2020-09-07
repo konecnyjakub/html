@@ -40,22 +40,19 @@ class Form extends \HTML\Container {
 
   public function addInput(string $name = "", string $type = "", ?int $size = null, string $value = "", string $src = ""): Input {
     $element = new Input($name, $type, $size, $value, $src);
-    $count = count($this->elements);
-    $this->elements[$count] = $item = $element;
+    $this->elements[] = $item = $element;
     return $item;
   }
 
   public function addTextArea(string $name = "", ?int $rows = null, int $cols = null, string $value = ""): TextArea {
     $element = new TextArea($name, $rows, $cols, $value);
-    $count = count($this->elements);
-    $this->elements[$count] = $item = $element;
+    $this->elements[] = $item = $element;
     return $item;
   }
 
   public function addSelectBox(string $name = "", ?int $size = null): SelectBox {
     $element = new SelectBox($name, $size);
-    $count = count($this->elements);
-    $this->elements[$count] = $item = $element;
+    $this->elements[] = $item = $element;
     return $item;
   }
 }

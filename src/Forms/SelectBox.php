@@ -27,8 +27,7 @@ final class SelectBox extends \HTML\Container {
 
   public function addOption(string $value = "", string $text = ""): SelectBoxOption {
     $element = new SelectBoxOption($value, $text);
-    $count = count($this->elements);
-    $this->elements[$count] = $item = $element;
+    $this->elements[] = $item = $element;
     return $item;
   }
 }
