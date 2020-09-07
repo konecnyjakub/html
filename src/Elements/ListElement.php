@@ -39,8 +39,7 @@ final class ListElement extends \HTML\Container {
     if(!$item instanceof ListItem) {
       throw new \TypeError("Argument 1 passed to " . __METHOD__ . "() must be an instance of " . ListItem::class . ", " . get_class($item) . " given");
     }
-    $count = count($this->elements);
-    $this->elements[$count] = $item;
+    parent::append($item);
   }
   
   /**
