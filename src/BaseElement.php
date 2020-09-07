@@ -10,7 +10,7 @@ namespace HTML;
  */
 abstract class BaseElement implements IRenderable {
   protected string $name;
-  protected array $attributes;
+  protected array $attributes = [];
 
   public function setId(string $id): void {
     $this->attributes["id"] = $id;
