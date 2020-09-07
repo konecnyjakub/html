@@ -41,14 +41,5 @@ final class ListElement extends \HTML\Container {
     }
     parent::append($item);
   }
-  
-  /**
-   * Remove an item
-   * 
-   * @param int $node Item's index
-   */
-  public function remove(int $node): void {
-    unset($this->elements[$node]);
-  }
 }
 ?>
